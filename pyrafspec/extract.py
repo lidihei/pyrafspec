@@ -56,6 +56,7 @@ def extract1d(calib=False, logfile=None):
     flat_exptime = conf['flat_exptime']
     apsize = conf['apsize']
     print(f'lijiao flat_exptime = {flat_exptime}')
+    flatfitsname = os.path.join(direname, 'flat.fits')
     for row in flat_exptime:
         print(f'lijiao raw = {row[0]}')
         color   = row[0]
@@ -86,11 +87,11 @@ def extract1d(calib=False, logfile=None):
         print(f'lijiao {color}')
         flatcoloris1 = (len(flat_exptime) == 1) and (color=='flat')
         if flatcoloris1:
-           iraf.imcomb(f'@{direname}/flat_{color}_ovr.lst', f'{direname}/flat.fits')
+           iraf.imcomb(f'@{direname}/flat_{color}_ovr.lst', flatfitsname)
         else:
            iraf.imcomb(f'@{direname}/flat_{color}_ovr.lst', f'{direname}/flat_{color}.fits')
-
-    if calib and os.path.exists(f'{direname}/flat.fits'):
+    
+    if calib and os.path.exists(flatfitsname):
         pass
     else:
         # mosaic flats
@@ -98,7 +99,7 @@ def extract1d(calib=False, logfile=None):
         print('Mosaic Flats')
         print( )
         if not flatcoloris1:
-           mosaic_flat(f'{direname}/flat.fits')
+           mosaic_flat(flatfitsname)
 
     # locating order
     print( )
@@ -122,7 +123,7 @@ def extract1d(calib=False, logfile=None):
     iraf.apedit.radius  = 10.0
     if not calib:
         #os.system(f'cp {direname}/flat.fits ./')
-        iraf.apedit(os.path.join(direname, 'flat.fits'))
+        iraf.apedit(flatfitsname)
         #os.system('rm flat.fits')
 
     iraf.aptrace.unlearn()
@@ -138,7 +139,7 @@ def extract1d(calib=False, logfile=None):
     iraf.aptrace.niterate   = 7
     if not calib:
         #os.system(f'cp {direname}/flat.fits ./')
-        iraf.aptrace(os.path.join(direname, 'flat.fits'))
+        iraf.aptrace(flatfitsname)
         #os.system('rm flat.fits')
 
     print( )
@@ -157,38 +158,48 @@ def extract1d(calib=False, logfile=None):
     iraf.apflatten.functio = "legendre"
     iraf.apflatten.order   = 8
     iraf.apflatten.niterat = 5
+    flat_nfitsname = os.path.join(direname, 'flat_n.fits')
     if not calib:
-        delete_fits(f'flat_n.fits')
+        delete_fits(flat_nfitsname)
         #os.system(f'cp {direname}/flat.fits ./')
-        iraf.apflatten(os.path.join(direname, 'flat.fits'),os.path.join(direname, 'flat_n.fits')
+        iraf.apflatten(flatfitsname,flat_nfitsname)
         #os.system('rm flat.fits')
 
     iraf.imarith.unlearn()
 
     # parse lamp
     print('----------------------------parse lamp-----------------------------')
-    prepare_lst(f'{direname}/lamp.lst', 'ovr', 'lamp_ovr.lst')
-    prepare_lst(f'{direname}/lamp.lst', 'flt', 'lamp_flt.lst')
+    lamplstname = os.path.join(direname, 'lamp.lst')
+    lamp_ovrlstname = os.path.join(direname, 'lamp_ovr.lst')
+    lamp_fltlstname = os.path.join(direname,'lamp_flt.lst')
+    prepare_lst(lamplstname, 'ovr', lamp_ovrlstname)
+    prepare_lst(lamplstname, 'flt', lamp_fltlstname)
     if not calib:
-        delete_fits('lamp_flt.lst')
-        iraf.imarith(f'@lamp_ovr.lst','/',f'{direname}/flat_n.fits','@lamp_flt.lst')
+        delete_fits(lamp_fltlstname)
+        iraf.imarith(f'@{lamp_ovrlstname}','/',flat_nfitsname,f'@{lamp_fltlstname}')
 
     # parse star
     print('----------------------------parse star-----------------------------')
-    prepare_lst(f'{direname}/star.lst', 'ovr', 'star_ovr.lst')
-    prepare_lst(f'{direname}/star.lst', 'flt', 'star_flt.lst')
+    starlstname = os.path.join(direname, 'star.lst')
+    star_ovrlstname = os.path.join(direname, 'star_ovr.lst')
+    star_fltlstname = os.path.join(direname,'star_flt.lst')
+    prepare_lst(starlstname, 'ovr', star_ovrlstname)
+    prepare_lst(starlstname, 'flt', star_fltlstname)
     if not calib:
-        delete_fits('star_flt.lst')
-        iraf.imarith('@star_ovr.lst','/',f'{direname}/flat_n.fits','@star_flt.lst')
+        delete_fits(star_fltlstname)
+        iraf.imarith(f'@{star_ovrlstname}','/',flat_nfitsname, f'@{star_fltlstname}')
 
     # parse iodine
     print('----------------------------parse iodine-----------------------------')
     if has_iodn:
-        prepare_lst(f'iodn.lst', 'ovr', f'iodn_ovr.lst')
-        prepare_lst(f'iodn.lst', 'flt', f'iodn_flt.lst')
+        iodnlstname = os.path.join(direname, 'iodn.lst')
+        iodn_ovrlstname = os.path.join(direname, 'iodn_ovr.lst')
+        iodn_fltlstname = os.path.join(direname, 'iodn_flt.lst')
+        prepare_lst(iodnlstname, 'ovr', iodn_ovrlstname)
+        prepare_lst(iodnlstname, 'flt', iodn_fltlstname)
         if not calib:
-            delete_fits('iodn_flt.lst')
-            iraf.imarith('@iodn_ovr.lst','/',f'{direname}/flat_n.fits','@iodn_flt.lst')
+            delete_fits(iodn_fltlstname)
+            iraf.imarith(f'@{iodn_ovrlstname}','/',flat_nfitsname,f'@{iodn_fltlstname}')
 
     #os.system(f'cp {direname}/flat.fits ./')
     print( )
@@ -201,7 +212,7 @@ def extract1d(calib=False, logfile=None):
     iraf.apresize.bkg    = 'no'
 
     iraf.apscatter.unlearn()
-    iraf.apscatter.referen = os.path.join(direname, 'flat.fits')
+    iraf.apscatter.referen = flatfitsname
     iraf.apscatter.interac = 'no'  # Run task interactively?
     iraf.apscatter.find    = 'no'
     iraf.apscatter.recente = 'yes'
@@ -229,17 +240,18 @@ def extract1d(calib=False, logfile=None):
     iraf.apscat2.low_reject  = 3.0
     iraf.apscat2.high_reject = 3.0
     iraf.apscat2.niterate    = 5
-
-    prepare_lst(f'{direname}/star.lst', 'bkg', f'star_bkg.lst')
+    star_bkglstname =  os.path.join(direname,'star_bkg.lst')
+    prepare_lst(starlstname, 'bkg', star_bkglstname)
     if not calib:
-        delete_fits(f'star_bkg.lst')
-        iraf.apscatter(f'@star_flt.lst', f'@star_bkg.lst')
+        delete_fits(star_bkglstname)
+        iraf.apscatter(f'@{star_fltlstname}', f'@{star_bkglstname}')
 
     if has_iodn:
-        prepare_lst(f'iodn.lst', 'bkg', f'iodn_bkg.lst')
+        iodn_bkglstname =  os.path.join(direname,'iodn_bkg.lst')
+        prepare_lst(iodnlstname, 'bkg', iodn_bkglstname)
         if not calib:
-            delete_fits(f'iodn_bkg.lst')
-            iraf.apscatter(f'@iodn_flt.lst', f'@iodn_bkg.lst')
+            delete_fits(iodn_bkglstname)
+            iraf.apscatter(f'@{iodn_fltlstname}', f'@{iodn_bkglstname}')
 
     print( )
     print('Extrcat 1d Spectra')
@@ -259,10 +271,12 @@ def extract1d(calib=False, logfile=None):
         else:
             continue
 
+    star_sumlstname =  os.path.join(direname,'star_sum.lst')
+    prepare_lst(starlstname,'sum',star_sumlstname)
     iraf.apsum.unlearn()
-    iraf.apsum.output  = '@star_sum.lst'
+    iraf.apsum.output  = f'@{star_sumlstname}'
     iraf.apsum.format  = 'echelle'
-    iraf.apsum.referen = os.path.join(direname, 'flat.fits')
+    iraf.apsum.referen = flatfitsname
     iraf.apsum.interac = 'no'    # Run task interactively?
     iraf.apsum.find    = 'no'    # Find apertures?
     iraf.apsum.recente = 'no'    # Recenter apertures?
@@ -274,29 +288,31 @@ def extract1d(calib=False, logfile=None):
     iraf.apsum.extras  = 'no'    # Extract sky, sigma, etc.?
     iraf.apsum.review  = 'no'    # Review extractions?
     iraf.apsum.weights = weights # Extraction weights (none|variance)
-    prepare_lst(f'{direname}/star.lst','sum',f'star_sum.lst')
     if not calib:
-        delete_fits(f'star_sum.lst')
-        iraf.apsum(f'@star_bkg.lst')
+        delete_fits(star_sumlstname)
+        iraf.apsum(f'@{star_bkglstname}')
 
-    iraf.apsum.output  = f'@lamp_sum.lst'
-    prepare_lst(f'{direname}/lamp.lst','sum',f'lamp_sum.lst')
+    lamplstname = os.path.join(direname, 'lamp.lst')
+    lamp_sumlstname = os.path.join(direname, 'lamp_sum.lst')
+    prepare_lst(lamplstname,'sum',lamp_sumlstname)
+    iraf.apsum.output  = f'@{lamp_sumlstname}'
     if not calib:
-        delete_fits(f'lamp_sum.lst')
-        iraf.apsum(f'@lamp_flt.lst')
+        delete_fits(lamp_sumlstname)
+        iraf.apsum(f'@{lamp_fltlstname}')
 
     if has_iodn:
-        iraf.apsum.output  = f'@iodn_sum.lst'
-        prepare_lst(f'iodn.lst','sum',f'iodn_sum.lst')
+        prepare_lst(iodnlstname,'sum',iodn_sumlstname)
+        iodn_sumlstname = os.path.join(direname, 'iodn_sum.lst')
+        iraf.apsum.output  = f'@{iodn_sumlstname}'
         if not calib:
-            delete_fits(f'iodn_sum.lst')
-            iraf.apsum(f'@iodn_bkg.lst')
+            delete_fits(iodn_sumlstname)
+            iraf.apsum(f'@{iodn_bkglstname}')
 
     print( )
     print('Wavelength Calibration')
     print( )
 
-    prompt = 'Do you want to use an [E]xisting reference or identify a [N]ew ThAr image? [E/N]: '
+    prompt = 'Do you want to use an [E]xisting reference or identify a [N]ew lamp image? [E/N]: '
     while(True):
         ans = input(prompt)
         ans = ans.strip().lower()
@@ -315,11 +331,11 @@ def extract1d(calib=False, logfile=None):
     if new_ecid:
         # delete the existing ec files corresponding to the filenames
         # in lamp_sum.lst
-        file = open('lamp_sum.lst')
+        file = open(lamp_sumlstname)
         for row in file:
             fn = row.strip()
             _direname = os.path.dirname(fn)
-            _basename = os.path.dirname(fn)
+            _basename = os.path.basename(fn)
             ecfn = f'{_direname}/ec'+_basename.replace('.fits','')
             if os.path.exists(ecfn):
                 os.remove(ecfn)
@@ -328,7 +344,7 @@ def extract1d(calib=False, logfile=None):
         # list files and their exptimes in lamp_sum.lst
         ref_lst = {}
         no = 1
-        file = open(f'lamp_sum.lst')
+        file = open(lamp_sumlstname)
         for row in file:
             row = row.strip()
             if len(row)==0 or row[0] in ['#'] or row[-5:]!='.fits':
@@ -401,8 +417,9 @@ def extract1d(calib=False, logfile=None):
             except:
                 pass
 
-    copy_lstfile('lamp_sum.lst', 'lamp_sum1.lst', direcp = './') 
-    copy_lstfile('star_sum.lst', 'star_sum1.lst', direcp = './') 
+    
+    copy_lstfile(lamp_sumlstname, 'lamp_sum1.lst', direcp = './') 
+    copy_lstfile(star_sumlstname, 'star_sum1.lst', direcp = './') 
     iraf.ecreid.unlearn()
     iraf.ecreid.logfile = 'STDOUT, iraf.log'
     print(f'ref_name = "{ref_name}"')
@@ -420,26 +437,29 @@ def extract1d(calib=False, logfile=None):
     iraf.refsp(f'@star_sum1.lst')
     iraf.refsp(f'@lamp_sum1.lst')
     if has_iodn:
-        copy_lstfile('iodn_sum.lst', 'iodn_sum1.lst', direcp = './') 
-        iraf.refsp(f'@iodn_sum.lst')
+        copy_lstfile(iodn_sumlstname, 'iodn_sum1.lst', direcp = './') 
+        iraf.refsp(f'@{iodn_sumlstname}')
 
 
     iraf.dispcor.unlearn()
     iraf.dispcor.lineari = 'no'
     iraf.dispcor.flux    = 'no'
     iraf.dispcor.logfile = 'iraf.log'
-    prepare_lst(f'{direname}/star.lst', '1ds', f'star_1ds.lst')
-    delete_fits(f'star_1ds.lst')
-    iraf.dispcor(f'@star_sum1.lst', f'@star_1ds.lst')
+    star_1dslstname = os.path.join(direname, 'star_1ds.lst')
+    prepare_lst(starlstname, '1ds', star_1dslstname)
+    delete_fits(star_1dslstname)
+    iraf.dispcor(f'@star_sum1.lst', f'@{star_1dslstname}')
 
-    prepare_lst(f'{direname}/lamp.lst', '1ds', f'lamp_1ds.lst')
-    delete_fits(f'lamp_1ds.lst')
-    iraf.dispcor(f'@lamp_sum1.lst',f'@lamp_1ds.lst')
+    lamp_1dslstname = os.path.join(direname, 'lamp_1ds.lst')
+    prepare_lst(lamplstname, '1ds', lamp_1dslstname)
+    delete_fits(lamp_1dslstname)
+    iraf.dispcor(f'@lamp_sum1.lst',f'@{lamp_1dslstname}')
 
     if has_iodn:
-        prepare_lst(f'iodn.lst', '1ds', f'iodn_1ds.lst')
-        delete_fits(f'iodn_1ds.lst')
-        iraf.dispcor(f'@iodn_sum1.lst', f'@iodn_1ds.lst')
+        iodn_1dslstname = os.path.join(direname, 'iodn_1ds.lst')
+        prepare_lst(iodnlstname, '1ds', iodn_1dslstname)
+        delete_fits(iodn_1dslstname)
+        iraf.dispcor(f'@iodn_sum1.lst', f'@{iodn1dslstname}')
         delete_fits('iodn_sum1.lst')
 
 
@@ -492,14 +512,16 @@ def extract1d(calib=False, logfile=None):
         iraf.continuum.high_reject = 3.0
         iraf.continuum(f'{direname}/flat_a.fits',f'{direname}/flat_as.fits')
 
-        prepare_lst(f'{direname}/star.lst', 'blz', f'star_blz.lst')
+        star_blzlstname = os.path.join(direname, 'star_blz.lst')
+        prepare_lst(starlstname, 'blz', star_blzlstname)
         delete_fits(f'star_blz.lst')
-        iraf.imarith(f'@star_1ds.lst','/',f'{direname}/flat_as.fits',f'@star_blz.lst')
+        iraf.imarith(f'@{star_1dslstname}','/',f'{direname}/flat_as.fits',f'@{star_blzlstname}')
 
         if has_iodn:
-            prepare_lst('iodn.lst', 'blz', 'iodn_blz.lst')
-            delete_fits('iodn_blz.lst')
-            iraf.imarith(f'@iodn_1ds.lst','/',f'{direname}/flat_as.fits',f'@iodn_blz.lst')
+           iodn_blzlstname = os.path.join(direname, 'iodn_blz.lst')
+           prepare_lst(iodnlstname, 'blz', iodn_blzlstname)
+           delete_fits(f'iodn_blz.lst')
+           iraf.imarith(f'@{iodn_1dslstname}','/',f'{direname}/flat_as.fits',f'@{iodn_blzlstname}')
 
     # delete deprecated files
     for row in flat_exptime:
@@ -508,29 +530,29 @@ def extract1d(calib=False, logfile=None):
 
     delete_fits('lamp_sum1.lst')
     delete_fits('star_sum1.lst')
-    os.remove(f'star_sum1.lst')
-    os.remove(f'lamp_sum1.lst')
-    os.remove(f'star_ovr.lst')
-    os.remove(f'star_flt.lst')
-    os.remove(f'star_bkg.lst')
-    os.remove(f'star_sum.lst')
-    os.remove(f'star_1ds.lst')
-    if os.path.exists(f'star_blz.lst'):
-        os.remove(f'star_blz.lst')
+    os.remove(f'{star_sum1lstname}')
+    os.remove(f'{lamp_sum1lstname}')
+    os.remove(f'{star_ovrlstname}')
+    os.remove(f'{star_fltlstname}')
+    os.remove(f'{star_bkglstname}')
+    os.remove(f'{star_sumlstname}')
+    os.remove(f'{star_1dslstname}')
+    if os.path.exists(star_blzlstname):
+        os.remove(star_blzlstname)
 
-    os.remove(f'lamp_ovr.lst')
-    os.remove(f'lamp_flt.lst')
-    os.remove(f'lamp_sum.lst')
-    os.remove(f'lamp_1ds.lst')
+    os.remove(lamp_ovrlstname)
+    os.remove(lamp_fltlstname)
+    os.remove(lamp_sumlstname)
+    os.remove(lamp_1dslstname)
 
     if has_iodn:
-        os.remove(f'iodn_ovr.lst')
-        os.remove(f'iodn_flt.lst')
-        os.remove(f'iodn_bkg.lst')
-        os.remove(f'iodn_sum.lst')
-        os.remove(f'iodn_1ds.lst')
-        if os.path.exists('iodn_blz.lst'):
-            os.remove('iodn_blz.lst')
+        os.remove(iodn_ovrlstname)
+        os.remove(iodn_fltlstname)
+        os.remove(iodn_bkglstname)
+        os.remove(iodn_sumlstname)
+        os.remove(iodn_1dslstname)
+        if os.path.exists(iodn_blzlstname):
+            os.remove(iodn_blzlstname)
 
     ## update fits headers
     update_header(logfile=logfile)
