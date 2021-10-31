@@ -20,7 +20,7 @@ from .config import *
 from .mosaicflat import *
 
 
-def extract1d(calib=False, logfile=None):
+def extract1d(calib=False, logfile=None, lamp='ThAr', lamp_exptime=None):
     from pyraf import iraf
 
     # remove the old iraf.log file
@@ -46,7 +46,7 @@ def extract1d(calib=False, logfile=None):
 
     # make list of different types
     direname = os.path.dirname(log.filename_composition)
-    log.save_file(f'{direname}/lamp.lst', object='lamp')
+    log.save_file(f'{direname}/lamp.lst', object=lamp, exptime=lamp_exptime)
     log.save_file(f'{direname}/star.lst', object='Star')
     if has_iodn:
         log.save_file(f'{direname}/iodn.lst', object='Iodn')
