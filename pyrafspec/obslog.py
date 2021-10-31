@@ -17,8 +17,8 @@ import matplotlib.ticker as ck
 #-----------------------------------------------------------------
 
 
-OBJECT_LST = ['Bias','Flat','Comp','Dark']
-CALIB_LST  = ['ThAr','Iodn','Mo','FeAr', 'HeNe']
+OBJECT_LST = ['bias','flat','comp','dark']
+CALIB_LST  = ['thar','iodn','mo','fear', 'hene']
 
 class LogItem(object):
 
@@ -139,10 +139,10 @@ class Log(object):
         for item in self.item_list:
             if not item.skip:
                 if object == 'Star':
-                    if ((item.object in OBJECT_LST) or
-                        (item.object in  CALIB_LST)):
+                    if ((item.object.lower() in OBJECT_LST) or
+                        (item.object.lower() in  CALIB_LST)):
                         continue
-                elif object != None and item.object!=object:
+                elif object != None and item.object!=object.lower():
                     continue
                 if exptime != None and abs(item.exptime-exptime)>1e-6:
                     continue

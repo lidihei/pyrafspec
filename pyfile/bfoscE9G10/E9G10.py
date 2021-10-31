@@ -44,7 +44,7 @@ biassubtract(logfile = logfile) #by the combine bias file
 #list file
 log = read_log(logfile)
 direname = dire
-#log.save_file(f'{direname}/lamp.lst', object='lamp')
+#log.save_file(f'{direname}/lamp.lst', object='FeAr', exptime=300)
 #log.save_file(f'{direname}/star.lst', object='Star')
 #flat_lst = log.get_filenamelist(
 #           object  = 'flat',
@@ -59,4 +59,4 @@ direname = dire
 #direname = dire
 #color = 'Blue'
 
-#extract1d(logfile=logfile, lamp='FeAr', lamp_exptime=300)
+extract1d(logfile=logfile, lamp='FeAr', lamp_exptime=300)
