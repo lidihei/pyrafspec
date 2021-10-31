@@ -1,0 +1,3007 @@
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 1 2048. 125.2427
+	image	last
+	aperture	1
+	beam	1
+	center	2048. 125.2427
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.35618
+		-8.045528
+		70.83132
+		-0.05859251
+		0.04639795
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 2 2048. 147.7552
+	image	last
+	aperture	2
+	beam	2
+	center	2048. 147.7552
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.37197
+		-8.304014
+		70.85796
+		-0.06630989
+		0.0589937
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 3 2048. 170.27
+	image	last
+	aperture	3
+	beam	3
+	center	2048. 170.27
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.44875
+		-8.516221
+		70.92243
+		-0.05602212
+		0.07932085
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 4 2048. 193.0026
+	image	last
+	aperture	4
+	beam	4
+	center	2048. 193.0026
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.37949
+		-8.729085
+		70.98027
+		-0.04096933
+		0.09014955
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 5 2048. 215.6334
+	image	last
+	aperture	5
+	beam	5
+	center	2048. 215.6334
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.46804
+		-8.958521
+		71.05608
+		-0.01685496
+		0.1102243
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 6 2048. 238.366
+	image	last
+	aperture	6
+	beam	6
+	center	2048. 238.366
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.53188
+		-9.190216
+		71.14793
+		0.02092336
+		0.1264261
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 7 2048. 261.2532
+	image	last
+	aperture	7
+	beam	7
+	center	2048. 261.2532
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.54149
+		-9.443305
+		71.19962
+		0.01106611
+		0.09335626
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 8 2048. 284.3305
+	image	last
+	aperture	8
+	beam	8
+	center	2048. 284.3305
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.47726
+		-9.682254
+		71.27435
+		0.004176566
+		0.08272465
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 9 2048. 307.3414
+	image	last
+	aperture	9
+	beam	9
+	center	2048. 307.3414
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.60215
+		-9.950731
+		71.31234
+		-0.01065603
+		0.07181213
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 10 2048. 330.607
+	image	last
+	aperture	10
+	beam	10
+	center	2048. 330.607
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.60378
+		-10.24777
+		71.36324
+		-0.005465093
+		0.1182774
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 11 2048. 353.9871
+	image	last
+	aperture	11
+	beam	11
+	center	2048. 353.9871
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.63465
+		-10.56964
+		71.39456
+		6.705601E-4
+		0.1442972
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 12 2048. 377.5707
+	image	last
+	aperture	12
+	beam	12
+	center	2048. 377.5707
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.63547
+		-10.88362
+		71.43625
+		-0.03848623
+		0.1009573
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 13 2048. 401.3748
+	image	last
+	aperture	13
+	beam	13
+	center	2048. 401.3748
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.60078
+		-11.1619
+		71.52482
+		-0.02273604
+		0.09812935
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 14 2048. 425.2554
+	image	last
+	aperture	14
+	beam	14
+	center	2048. 425.2554
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.66255
+		-11.50826
+		71.56488
+		-0.06170725
+		0.06624423
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 15 2048. 449.3217
+	image	last
+	aperture	15
+	beam	15
+	center	2048. 449.3217
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.72417
+		-11.86345
+		71.61227
+		-0.05959557
+		0.07522153
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 16 2048. 473.6386
+	image	last
+	aperture	16
+	beam	16
+	center	2048. 473.6386
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.75053
+		-12.21013
+		71.68389
+		-0.03676159
+		0.09661171
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 17 2048. 498.1518
+	image	last
+	aperture	17
+	beam	17
+	center	2048. 498.1518
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.81856
+		-12.53426
+		71.76277
+		-0.03597211
+		0.1022104
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 18 2048. 522.9297
+	image	last
+	aperture	18
+	beam	18
+	center	2048. 522.9297
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.836
+		-12.89533
+		71.83532
+		-0.03855528
+		0.08870633
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 19 2048. 547.9615
+	image	last
+	aperture	19
+	beam	19
+	center	2048. 547.9615
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.82718
+		-13.25344
+		71.90041
+		-0.02421301
+		0.09882405
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 20 2048. 573.1451
+	image	last
+	aperture	20
+	beam	20
+	center	2048. 573.1451
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.90482
+		-13.64485
+		71.95921
+		-0.01853458
+		0.09885649
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 21 2048. 598.6507
+	image	last
+	aperture	21
+	beam	21
+	center	2048. 598.6507
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.90907
+		-14.03974
+		72.01372
+		-0.03056868
+		0.1081927
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 22 2048. 624.3608
+	image	last
+	aperture	22
+	beam	22
+	center	2048. 624.3608
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.96896
+		-14.43164
+		72.08473
+		-0.04300918
+		0.1000407
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 23 2048. 650.3669
+	image	last
+	aperture	23
+	beam	23
+	center	2048. 650.3669
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.99199
+		-14.84475
+		72.16634
+		-0.02236141
+		0.1050117
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 24 2048. 676.6996
+	image	last
+	aperture	24
+	beam	24
+	center	2048. 676.6996
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.96204
+		-15.26202
+		72.22295
+		-0.03216138
+		0.1122494
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 25 2048. 703.1866
+	image	last
+	aperture	25
+	beam	25
+	center	2048. 703.1866
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.05555
+		-15.69707
+		72.27803
+		-0.04627574
+		0.09717549
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 26 2048. 729.9988
+	image	last
+	aperture	26
+	beam	26
+	center	2048. 729.9988
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.10774
+		-16.12926
+		72.36628
+		-0.0284651
+		0.1166878
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 27 2048. 757.1501
+	image	last
+	aperture	27
+	beam	27
+	center	2048. 757.1501
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.10891
+		-16.57878
+		72.43602
+		-0.03286291
+		0.1045494
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 28 2048. 784.5538
+	image	last
+	aperture	28
+	beam	28
+	center	2048. 784.5538
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.16247
+		-17.02703
+		72.50952
+		-0.02458316
+		0.1165433
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 29 2048. 812.2755
+	image	last
+	aperture	29
+	beam	29
+	center	2048. 812.2755
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.19724
+		-17.49319
+		72.58009
+		-0.02569238
+		0.1115038
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 30 2048. 840.3179
+	image	last
+	aperture	30
+	beam	30
+	center	2048. 840.3179
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.22308
+		-17.96368
+		72.65838
+		-0.0283225
+		0.1145513
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 31 2048. 868.6343
+	image	last
+	aperture	31
+	beam	31
+	center	2048. 868.6343
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.29255
+		-18.45303
+		72.73128
+		-0.02016224
+		0.1260948
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 32 2048. 897.3218
+	image	last
+	aperture	32
+	beam	32
+	center	2048. 897.3218
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.30933
+		-18.94093
+		72.8074
+		-0.0232204
+		0.1153185
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 33 2048. 926.3329
+	image	last
+	aperture	33
+	beam	33
+	center	2048. 926.3329
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.32946
+		-19.44289
+		72.8866
+		-0.02537073
+		0.1315654
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 34 2048. 955.674
+	image	last
+	aperture	34
+	beam	34
+	center	2048. 955.674
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.34661
+		-19.96334
+		72.95792
+		-0.03101658
+		0.1314244
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 35 2048. 985.3179
+	image	last
+	aperture	35
+	beam	35
+	center	2048. 985.3179
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.40171
+		-20.48207
+		73.04389
+		-0.02868512
+		0.1347953
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 36 2048. 1015.318
+	image	last
+	aperture	36
+	beam	36
+	center	2048. 1015.318
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.43874
+		-21.0214
+		73.11824
+		-0.02893129
+		0.1302771
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 37 2048. 1045.629
+	image	last
+	aperture	37
+	beam	37
+	center	2048. 1045.629
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.51515
+		-21.56886
+		73.20116
+		-0.02667766
+		0.1373967
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 38 2048. 1076.369
+	image	last
+	aperture	38
+	beam	38
+	center	2048. 1076.369
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.51264
+		-22.13278
+		73.285
+		-0.02995322
+		0.1366434
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 39 2048. 1107.424
+	image	last
+	aperture	39
+	beam	39
+	center	2048. 1107.424
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.56009
+		-22.70696
+		73.37163
+		-0.02569995
+		0.1479915
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 40 2048. 1138.88
+	image	last
+	aperture	40
+	beam	40
+	center	2048. 1138.88
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.5685
+		-23.29078
+		73.45409
+		-0.02589513
+		0.1523412
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 41 2048. 1170.651
+	image	last
+	aperture	41
+	beam	41
+	center	2048. 1170.651
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.63591
+		-23.88448
+		73.54595
+		-0.02287342
+		0.165841
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 42 2048. 1202.836
+	image	last
+	aperture	42
+	beam	42
+	center	2048. 1202.836
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.67099
+		-24.4936
+		73.62848
+		-0.02879774
+		0.165065
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 43 2048. 1235.428
+	image	last
+	aperture	43
+	beam	43
+	center	2048. 1235.428
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.68151
+		-25.11827
+		73.71712
+		-0.02799481
+		0.172621
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 44 2048. 1268.338
+	image	last
+	aperture	44
+	beam	44
+	center	2048. 1268.338
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.76758
+		-25.74701
+		73.81074
+		-0.03536373
+		0.1777136
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 45 2048. 1301.706
+	image	last
+	aperture	45
+	beam	45
+	center	2048. 1301.706
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.78947
+		-26.38856
+		73.90657
+		-0.02790318
+		0.1835458
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 46 2048. 1335.463
+	image	last
+	aperture	46
+	beam	46
+	center	2048. 1335.463
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.82372
+		-27.04227
+		74.00301
+		-0.02953029
+		0.1828503
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 47 2048. 1369.556
+	image	last
+	aperture	47
+	beam	47
+	center	2048. 1369.556
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.92695
+		-27.71287
+		74.10332
+		-0.03355434
+		0.1912926
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 48 2048. 1404.126
+	image	last
+	aperture	48
+	beam	48
+	center	2048. 1404.126
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.96478
+		-28.39405
+		74.20533
+		-0.04001012
+		0.1986182
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 49 2048. 1439.108
+	image	last
+	aperture	49
+	beam	49
+	center	2048. 1439.108
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.00776
+		-29.09199
+		74.30803
+		-0.04169381
+		0.1870219
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 50 2048. 1474.493
+	image	last
+	aperture	50
+	beam	50
+	center	2048. 1474.493
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.06734
+		-29.80325
+		74.41963
+		-0.04802905
+		0.1978193
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 51 2048. 1510.322
+	image	last
+	aperture	51
+	beam	51
+	center	2048. 1510.322
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.12108
+		-30.52689
+		74.53159
+		-0.0445728
+		0.1951311
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 52 2048. 1546.584
+	image	last
+	aperture	52
+	beam	52
+	center	2048. 1546.584
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.18089
+		-31.26406
+		74.64444
+		-0.0465755
+		0.1959816
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 53 2048. 1583.29
+	image	last
+	aperture	53
+	beam	53
+	center	2048. 1583.29
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.23959
+		-32.01617
+		74.75439
+		-0.05510414
+		0.1976173
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 54 2048. 1620.456
+	image	last
+	aperture	54
+	beam	54
+	center	2048. 1620.456
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.2896
+		-32.77914
+		74.87019
+		-0.05823449
+		0.2079697
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 55 2048. 1658.083
+	image	last
+	aperture	55
+	beam	55
+	center	2048. 1658.083
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.33534
+		-33.56163
+		74.98501
+		-0.07066569
+		0.2119386
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 56 2048. 1696.105
+	image	last
+	aperture	56
+	beam	56
+	center	2048. 1696.105
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.44876
+		-34.35468
+		75.11044
+		-0.07908201
+		0.2198591
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 57 2048. 1734.664
+	image	last
+	aperture	57
+	beam	57
+	center	2048. 1734.664
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.49648
+		-35.1622
+		75.23132
+		-0.0861179
+		0.228975
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 58 2048. 1773.709
+	image	last
+	aperture	58
+	beam	58
+	center	2048. 1773.709
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.52973
+		-35.9929
+		75.35796
+		-0.09740303
+		0.2372525
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 59 2048. 1813.207
+	image	last
+	aperture	59
+	beam	59
+	center	2048. 1813.207
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.60551
+		-36.83186
+		75.48364
+		-0.1143908
+		0.2587738
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 60 2048. 1853.203
+	image	last
+	aperture	60
+	beam	60
+	center	2048. 1853.203
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.66444
+		-37.69003
+		75.61699
+		-0.1257202
+		0.2681624
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 61 2048. 1893.695
+	image	last
+	aperture	61
+	beam	61
+	center	2048. 1893.695
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.7275
+		-38.56275
+		75.75043
+		-0.1392115
+		0.2852929
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 62 2048. 1934.68
+	image	last
+	aperture	62
+	beam	62
+	center	2048. 1934.68
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.8006
+		-39.4576
+		75.89143
+		-0.1441799
+		0.29252
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 63 2048. 1976.203
+	image	last
+	aperture	63
+	beam	63
+	center	2048. 1976.203
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.84993
+		-40.36137
+		76.02972
+		-0.1566265
+		0.3100773
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 64 2048. 2018.252
+	image	last
+	aperture	64
+	beam	64
+	center	2048. 2018.252
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.92592
+		-41.28607
+		76.16222
+		-0.1700022
+		0.3076802
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 65 2048. 2060.812
+	image	last
+	aperture	65
+	beam	65
+	center	2048. 2060.812
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.98482
+		-42.22598
+		76.29449
+		-0.1735344
+		0.303707
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 66 2048. 2103.917
+	image	last
+	aperture	66
+	beam	66
+	center	2048. 2103.917
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.03049
+		-43.18389
+		76.42903
+		-0.1717015
+		0.2948672
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 67 2048. 2147.536
+	image	last
+	aperture	67
+	beam	67
+	center	2048. 2147.536
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.09885
+		-44.15403
+		76.54222
+		-0.1745629
+		0.2664285
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 68 2048. 2191.7
+	image	last
+	aperture	68
+	beam	68
+	center	2048. 2191.7
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.1777
+		-45.14779
+		76.68452
+		-0.1700876
+		0.255994
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 69 2048. 2236.432
+	image	last
+	aperture	69
+	beam	69
+	center	2048. 2236.432
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.24671
+		-46.16417
+		76.80998
+		-0.1733018
+		0.2230828
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 70 2048. 2281.734
+	image	last
+	aperture	70
+	beam	70
+	center	2048. 2281.734
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.31086
+		-47.1969
+		76.93859
+		-0.1709232
+		0.200103
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 71 2048. 2327.604
+	image	last
+	aperture	71
+	beam	71
+	center	2048. 2327.604
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.38405
+		-48.24974
+		77.06911
+		-0.1735292
+		0.1642931
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 72 2048. 2374.076
+	image	last
+	aperture	72
+	beam	72
+	center	2048. 2374.076
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.43956
+		-49.32317
+		77.19951
+		-0.1697968
+		0.1365871
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 73 2048. 2421.123
+	image	last
+	aperture	73
+	beam	73
+	center	2048. 2421.123
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.51201
+		-50.42338
+		77.31949
+		-0.1796429
+		0.07991131
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 74 2048. 2468.775
+	image	last
+	aperture	74
+	beam	74
+	center	2048. 2468.775
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.58192
+		-51.54417
+		77.44524
+		-0.1954298
+		0.02970243
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 75 2048. 2517.03
+	image	last
+	aperture	75
+	beam	75
+	center	2048. 2517.03
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.66352
+		-52.6932
+		77.57913
+		-0.2058004
+		-0.004223298
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 76 2048. 2565.919
+	image	last
+	aperture	76
+	beam	76
+	center	2048. 2565.919
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.73068
+		-53.86806
+		77.70137
+		-0.2264223
+		-0.0561298
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 77 2048. 2615.437
+	image	last
+	aperture	77
+	beam	77
+	center	2048. 2615.437
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.79945
+		-55.06864
+		77.82633
+		-0.2599304
+		-0.0963983
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 78 2048. 2665.643
+	image	last
+	aperture	78
+	beam	78
+	center	2048. 2665.643
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.82533
+		-56.29481
+		77.94683
+		-0.271184
+		-0.1432841
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 79 2048. 2716.413
+	image	last
+	aperture	79
+	beam	79
+	center	2048. 2716.413
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.94156
+		-57.5439
+		78.07629
+		-0.2951958
+		-0.1832779
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 80 2048. 2767.896
+	image	last
+	aperture	80
+	beam	80
+	center	2048. 2767.896
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.01243
+		-58.82825
+		78.20891
+		-0.3186685
+		-0.2174172
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 81 2048. 2820.022
+	image	last
+	aperture	81
+	beam	81
+	center	2048. 2820.022
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.11676
+		-60.13884
+		78.35063
+		-0.3411744
+		-0.2367987
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 82 2048. 2872.882
+	image	last
+	aperture	82
+	beam	82
+	center	2048. 2872.882
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.18061
+		-61.4673
+		78.49767
+		-0.3447029
+		-0.2613479
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 83 2048. 2926.471
+	image	last
+	aperture	83
+	beam	83
+	center	2048. 2926.471
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.22001
+		-62.82664
+		78.64354
+		-0.3550969
+		-0.2652912
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 84 2048. 2980.703
+	image	last
+	aperture	84
+	beam	84
+	center	2048. 2980.703
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.31644
+		-64.21812
+		78.80114
+		-0.3636123
+		-0.2753365
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 85 2048. 3035.694
+	image	last
+	aperture	85
+	beam	85
+	center	2048. 3035.694
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.40254
+		-65.63603
+		78.96019
+		-0.3770348
+		-0.2918359
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 86 2048. 3091.443
+	image	last
+	aperture	86
+	beam	86
+	center	2048. 3091.443
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.47801
+		-67.08743
+		79.12642
+		-0.3878871
+		-0.2978297
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 87 2048. 3147.935
+	image	last
+	aperture	87
+	beam	87
+	center	2048. 3147.935
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.56986
+		-68.56747
+		79.29932
+		-0.4038644
+		-0.3121926
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 88 2048. 3205.219
+	image	last
+	aperture	88
+	beam	88
+	center	2048. 3205.219
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.63701
+		-70.07726
+		79.47041
+		-0.4110373
+		-0.3236528
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 89 2048. 3263.269
+	image	last
+	aperture	89
+	beam	89
+	center	2048. 3263.269
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.7336
+		-71.62772
+		79.65733
+		-0.4060012
+		-0.3106195
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 90 2048. 3322.116
+	image	last
+	aperture	90
+	beam	90
+	center	2048. 3322.116
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.83344
+		-73.21584
+		79.83943
+		-0.4209556
+		-0.3180859
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 91 2048. 3381.773
+	image	last
+	aperture	91
+	beam	91
+	center	2048. 3381.773
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.94619
+		-74.84605
+		80.03355
+		-0.4192844
+		-0.3180008
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 92 2048. 3442.312
+	image	last
+	aperture	92
+	beam	92
+	center	2048. 3442.312
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		40.0076
+		-76.51771
+		80.2299
+		-0.4511461
+		-0.3205788
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 93 2048. 3503.645
+	image	last
+	aperture	93
+	beam	93
+	center	2048. 3503.645
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		40.13023
+		-78.22584
+		80.42873
+		-0.4562901
+		-0.316164
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 94 2048. 3565.936
+	image	last
+	aperture	94
+	beam	94
+	center	2048. 3565.936
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		40.16498
+		-79.97546
+		80.63117
+		-0.4673257
+		-0.2911807
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 95 2048. 3629.004
+	image	last
+	aperture	95
+	beam	95
+	center	2048. 3629.004
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		40.3166
+		-81.77897
+		80.85752
+		-0.4909844
+		-0.2544688
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 96 2048. 3693.042
+	image	last
+	aperture	96
+	beam	96
+	center	2048. 3693.042
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		40.39608
+		-83.62453
+		81.07822
+		-0.5026712
+		-0.2658502
+
+# Mon 16:13:08 08-Mar-2021
+begin	aperture last 97 2048. 3757.948
+	image	last
+	aperture	97
+	beam	97
+	center	2048. 3757.948
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		40.51355
+		-85.51469
+		81.27789
+		-0.5540878
+		-0.1898081
+

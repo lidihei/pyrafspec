@@ -1,0 +1,28 @@
+% Date                 = 2021-02-07
+% Program              = Star Search
+% Observer             = Jiao Li
+% Operator             = Jiao Li
+% Observatory          = YNAO-Ling Jiang
+% Telescope            = 2.4m
+% Instrument           = HRS
+% Detector             = E2V CCD203-82
+% Fiber Diameter       = 2.0"
+% Slit Width           = 0.20mm
+% I2 Temperature       = 60
+% Readout              = Left Top & Bottom
+% Gain                 = 1.0 e-/ADU
+% Time System          = GPS
+% Time Zone            = +08:00
+% Filename Composition = /media/backup/240cm/HRS_reduced/20210207_test/20210207/%Y%m%d%i3.fits
+% Cols                 = id,object,time,exptime,note
+ | 01-05   |  bias x5     |            |   0   | 
+ | 06-10   |  flat x5     |            |   1   | 
+ | 11-13   |  flat x3     |            |   2   | 
+ | 14      |  thar        |            |   5   | 
+ | 15-19   |  TYC3340 x5  |  20:11:00  | 1200  | 
+ | 20-22   |  J0639 x3    |  22:24     | 1800  | 
+ | 23      |  thar        |            |   5   | 
+ | 24-25   |  flat x2     |  24:18:00  |   2   | 
+ | 26-30   |  flat x5     |            |   5   | 
+ | 31-36   |  flat x6     |            |   20  |
+ 

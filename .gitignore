@@ -1,0 +1,22 @@
+# Executables
+*.swp
+*.air
+*.ipa
+*.apk
+
+data/*
+ipynb/.ipynb_checkpoints
+ipynb/model
+ipynb/chains
+*.pdf
+*.egg-info
+build
+dist
+pyfile/*/login*
+pyfile/*/pyraf
+pyfile/*/uparm
+pyfile/*/logfile
+pyfile/*/database
+*__pycache__*
+
+

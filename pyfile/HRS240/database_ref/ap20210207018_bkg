@@ -1,0 +1,3007 @@
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 1 2048. 123.9215
+	image	20210207018_bkg
+	aperture	1
+	beam	1
+	center	2048. 123.9215
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.2877
+		-7.998887
+		70.82768
+		-0.06504118
+		0.04922275
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 2 2048. 146.4711
+	image	20210207018_bkg
+	aperture	2
+	beam	2
+	center	2048. 146.4711
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.26357
+		-8.24821
+		70.85671
+		-0.07514167
+		0.05810537
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 3 2048. 168.9536
+	image	20210207018_bkg
+	aperture	3
+	beam	3
+	center	2048. 168.9536
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.36883
+		-8.460283
+		70.92834
+		-0.06281354
+		0.08137264
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 4 2048. 191.7053
+	image	20210207018_bkg
+	aperture	4
+	beam	4
+	center	2048. 191.7053
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.27576
+		-8.672853
+		70.98711
+		-0.04517492
+		0.08998144
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 5 2048. 214.2823
+	image	20210207018_bkg
+	aperture	5
+	beam	5
+	center	2048. 214.2823
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.41315
+		-8.902768
+		71.06051
+		-0.0163571
+		0.1110609
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 6 2048. 237.0235
+	image	20210207018_bkg
+	aperture	6
+	beam	6
+	center	2048. 237.0235
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.46141
+		-9.133921
+		71.15794
+		0.02258236
+		0.1229003
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 7 2048. 259.9475
+	image	20210207018_bkg
+	aperture	7
+	beam	7
+	center	2048. 259.9475
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.42962
+		-9.383604
+		71.21133
+		0.02052522
+		0.09270191
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 8 2048. 282.9942
+	image	20210207018_bkg
+	aperture	8
+	beam	8
+	center	2048. 282.9942
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.38914
+		-9.615456
+		71.28404
+		0.009591561
+		0.08025841
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 9 2048. 305.9979
+	image	20210207018_bkg
+	aperture	9
+	beam	9
+	center	2048. 305.9979
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.51665
+		-9.887721
+		71.32143
+		-0.009490613
+		0.07507499
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 10 2048. 329.2647
+	image	20210207018_bkg
+	aperture	10
+	beam	10
+	center	2048. 329.2647
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.51091
+		-10.18683
+		71.36688
+		-0.001735078
+		0.1208322
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 11 2048. 352.6438
+	image	20210207018_bkg
+	aperture	11
+	beam	11
+	center	2048. 352.6438
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.53523
+		-10.50945
+		71.39584
+		-0.002173325
+		0.1523213
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 12 2048. 376.2217
+	image	20210207018_bkg
+	aperture	12
+	beam	12
+	center	2048. 376.2217
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.53469
+		-10.82361
+		71.4399
+		-0.03827049
+		0.1095535
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 13 2048. 400.0304
+	image	20210207018_bkg
+	aperture	13
+	beam	13
+	center	2048. 400.0304
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.48983
+		-11.10114
+		71.52985
+		-0.02968494
+		0.09842163
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 14 2048. 423.8823
+	image	20210207018_bkg
+	aperture	14
+	beam	14
+	center	2048. 423.8823
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.57241
+		-11.44836
+		71.56949
+		-0.06723118
+		0.06868084
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 15 2048. 447.9395
+	image	20210207018_bkg
+	aperture	15
+	beam	15
+	center	2048. 447.9395
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.63404
+		-11.80618
+		71.61539
+		-0.06384715
+		0.07392205
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 16 2048. 472.236
+	image	20210207018_bkg
+	aperture	16
+	beam	16
+	center	2048. 472.236
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.6728
+		-12.1527
+		71.68658
+		-0.03884483
+		0.1000463
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 17 2048. 496.7555
+	image	20210207018_bkg
+	aperture	17
+	beam	17
+	center	2048. 496.7555
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.73035
+		-12.47318
+		71.76893
+		-0.03660321
+		0.1053623
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 18 2048. 521.5342
+	image	20210207018_bkg
+	aperture	18
+	beam	18
+	center	2048. 521.5342
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.74025
+		-12.83014
+		71.84431
+		-0.03913032
+		0.08990817
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 19 2048. 546.5435
+	image	20210207018_bkg
+	aperture	19
+	beam	19
+	center	2048. 546.5435
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.74662
+		-13.19037
+		71.90767
+		-0.02242002
+		0.1024254
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 20 2048. 571.7428
+	image	20210207018_bkg
+	aperture	20
+	beam	20
+	center	2048. 571.7428
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.80131
+		-13.5822
+		71.96616
+		-0.02076866
+		0.1029476
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 21 2048. 597.2259
+	image	20210207018_bkg
+	aperture	21
+	beam	21
+	center	2048. 597.2259
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.81756
+		-13.97837
+		72.01961
+		-0.03100602
+		0.1155156
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 22 2048. 622.9304
+	image	20210207018_bkg
+	aperture	22
+	beam	22
+	center	2048. 622.9304
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.87735
+		-14.3703
+		72.09019
+		-0.04259426
+		0.1045128
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 23 2048. 648.9318
+	image	20210207018_bkg
+	aperture	23
+	beam	23
+	center	2048. 648.9318
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.89562
+		-14.78081
+		72.17106
+		-0.02313803
+		0.1128122
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 24 2048. 675.2461
+	image	20210207018_bkg
+	aperture	24
+	beam	24
+	center	2048. 675.2461
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.87768
+		-15.20132
+		72.22659
+		-0.03515694
+		0.1173113
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 25 2048. 701.7289
+	image	20210207018_bkg
+	aperture	25
+	beam	25
+	center	2048. 701.7289
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		35.96819
+		-15.63258
+		72.28426
+		-0.04270207
+		0.1032863
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 26 2048. 728.5314
+	image	20210207018_bkg
+	aperture	26
+	beam	26
+	center	2048. 728.5314
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.0215
+		-16.0674
+		72.37409
+		-0.02783982
+		0.120876
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 27 2048. 755.6793
+	image	20210207018_bkg
+	aperture	27
+	beam	27
+	center	2048. 755.6793
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.01973
+		-16.51691
+		72.44208
+		-0.03494005
+		0.107827
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 28 2048. 783.092
+	image	20210207018_bkg
+	aperture	28
+	beam	28
+	center	2048. 783.092
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.05819
+		-16.96301
+		72.51474
+		-0.02699131
+		0.1214401
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 29 2048. 810.7952
+	image	20210207018_bkg
+	aperture	29
+	beam	29
+	center	2048. 810.7952
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.1053
+		-17.42946
+		72.58466
+		-0.02343302
+		0.1161882
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 30 2048. 838.8419
+	image	20210207018_bkg
+	aperture	30
+	beam	30
+	center	2048. 838.8419
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.12021
+		-17.89982
+		72.66515
+		-0.02744723
+		0.1188581
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 31 2048. 867.1355
+	image	20210207018_bkg
+	aperture	31
+	beam	31
+	center	2048. 867.1355
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.2054
+		-18.38915
+		72.73293
+		-0.01939928
+		0.1308641
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 32 2048. 895.8212
+	image	20210207018_bkg
+	aperture	32
+	beam	32
+	center	2048. 895.8212
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.21748
+		-18.87314
+		72.81086
+		-0.02661375
+		0.1217047
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 33 2048. 924.8157
+	image	20210207018_bkg
+	aperture	33
+	beam	33
+	center	2048. 924.8157
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.24548
+		-19.37548
+		72.89403
+		-0.01904331
+		0.1403912
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 34 2048. 954.148
+	image	20210207018_bkg
+	aperture	34
+	beam	34
+	center	2048. 954.148
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.26194
+		-19.89535
+		72.96497
+		-0.02943448
+		0.1385283
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 35 2048. 983.7955
+	image	20210207018_bkg
+	aperture	35
+	beam	35
+	center	2048. 983.7955
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.30551
+		-20.41487
+		73.04566
+		-0.0262616
+		0.1425751
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 36 2048. 1013.798
+	image	20210207018_bkg
+	aperture	36
+	beam	36
+	center	2048. 1013.798
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.33184
+		-20.95231
+		73.1239
+		-0.0286174
+		0.136538
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 37 2048. 1044.091
+	image	20210207018_bkg
+	aperture	37
+	beam	37
+	center	2048. 1044.091
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.41636
+		-21.50034
+		73.2059
+		-0.02674734
+		0.1416854
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 38 2048. 1074.791
+	image	20210207018_bkg
+	aperture	38
+	beam	38
+	center	2048. 1074.791
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.44262
+		-22.06452
+		73.28824
+		-0.02899556
+		0.14328
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 39 2048. 1105.875
+	image	20210207018_bkg
+	aperture	39
+	beam	39
+	center	2048. 1105.875
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.45139
+		-22.63787
+		73.37579
+		-0.02325523
+		0.1566478
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 40 2048. 1137.301
+	image	20210207018_bkg
+	aperture	40
+	beam	40
+	center	2048. 1137.301
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.4817
+		-23.21764
+		73.45767
+		-0.02247945
+		0.1627937
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 41 2048. 1169.067
+	image	20210207018_bkg
+	aperture	41
+	beam	41
+	center	2048. 1169.067
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.54244
+		-23.81323
+		73.5498
+		-0.01982819
+		0.177293
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 42 2048. 1201.258
+	image	20210207018_bkg
+	aperture	42
+	beam	42
+	center	2048. 1201.258
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.56043
+		-24.42228
+		73.62965
+		-0.02273437
+		0.1757631
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 43 2048. 1233.851
+	image	20210207018_bkg
+	aperture	43
+	beam	43
+	center	2048. 1233.851
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.55972
+		-25.04403
+		73.71976
+		-0.02457647
+		0.1833235
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 44 2048. 1266.734
+	image	20210207018_bkg
+	aperture	44
+	beam	44
+	center	2048. 1266.734
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.66249
+		-25.67315
+		73.81234
+		-0.02890505
+		0.1878594
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 45 2048. 1300.102
+	image	20210207018_bkg
+	aperture	45
+	beam	45
+	center	2048. 1300.102
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.67367
+		-26.31555
+		73.90839
+		-0.02399385
+		0.1943441
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 46 2048. 1333.829
+	image	20210207018_bkg
+	aperture	46
+	beam	46
+	center	2048. 1333.829
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.72715
+		-26.96684
+		74.00681
+		-0.02502544
+		0.1918309
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 47 2048. 1367.927
+	image	20210207018_bkg
+	aperture	47
+	beam	47
+	center	2048. 1367.927
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.81437
+		-27.63619
+		74.10667
+		-0.02461349
+		0.2015306
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 48 2048. 1402.47
+	image	20210207018_bkg
+	aperture	48
+	beam	48
+	center	2048. 1402.47
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.86762
+		-28.31941
+		74.20901
+		-0.03339502
+		0.2090753
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 49 2048. 1437.443
+	image	20210207018_bkg
+	aperture	49
+	beam	49
+	center	2048. 1437.443
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.9087
+		-29.01738
+		74.31165
+		-0.03749609
+		0.1964181
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 50 2048. 1472.854
+	image	20210207018_bkg
+	aperture	50
+	beam	50
+	center	2048. 1472.854
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.92512
+		-29.72967
+		74.42636
+		-0.04328495
+		0.2042688
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 51 2048. 1508.667
+	image	20210207018_bkg
+	aperture	51
+	beam	51
+	center	2048. 1508.667
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		36.98309
+		-30.45392
+		74.53759
+		-0.03867595
+		0.2061378
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 52 2048. 1544.92
+	image	20210207018_bkg
+	aperture	52
+	beam	52
+	center	2048. 1544.92
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.03912
+		-31.18957
+		74.65065
+		-0.03825985
+		0.2076087
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 53 2048. 1581.611
+	image	20210207018_bkg
+	aperture	53
+	beam	53
+	center	2048. 1581.611
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.10148
+		-31.94271
+		74.76501
+		-0.0496728
+		0.2113137
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 54 2048. 1618.776
+	image	20210207018_bkg
+	aperture	54
+	beam	54
+	center	2048. 1618.776
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.13892
+		-32.70478
+		74.87778
+		-0.05018599
+		0.218189
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 55 2048. 1656.377
+	image	20210207018_bkg
+	aperture	55
+	beam	55
+	center	2048. 1656.377
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.19747
+		-33.48407
+		74.99507
+		-0.06082301
+		0.2234993
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 56 2048. 1694.395
+	image	20210207018_bkg
+	aperture	56
+	beam	56
+	center	2048. 1694.395
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.30339
+		-34.27868
+		75.11642
+		-0.06845915
+		0.2315539
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 57 2048. 1732.947
+	image	20210207018_bkg
+	aperture	57
+	beam	57
+	center	2048. 1732.947
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.34384
+		-35.08812
+		75.24065
+		-0.08016701
+		0.2441178
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 58 2048. 1771.977
+	image	20210207018_bkg
+	aperture	58
+	beam	58
+	center	2048. 1771.977
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.38106
+		-35.91021
+		75.37252
+		-0.08511532
+		0.2558202
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 59 2048. 1811.44
+	image	20210207018_bkg
+	aperture	59
+	beam	59
+	center	2048. 1811.44
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.47737
+		-36.75327
+		75.49333
+		-0.1086869
+		0.272686
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 60 2048. 1851.429
+	image	20210207018_bkg
+	aperture	60
+	beam	60
+	center	2048. 1851.429
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.53149
+		-37.60792
+		75.63357
+		-0.1140004
+		0.2873169
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 61 2048. 1891.903
+	image	20210207018_bkg
+	aperture	61
+	beam	61
+	center	2048. 1891.903
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.59767
+		-38.48183
+		75.76508
+		-0.1247484
+		0.2967465
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 62 2048. 1932.88
+	image	20210207018_bkg
+	aperture	62
+	beam	62
+	center	2048. 1932.88
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.66622
+		-39.37714
+		75.90816
+		-0.1381014
+		0.3120484
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 63 2048. 1974.392
+	image	20210207018_bkg
+	aperture	63
+	beam	63
+	center	2048. 1974.392
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.71117
+		-40.28205
+		76.04749
+		-0.1517134
+		0.3233515
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 64 2048. 2016.428
+	image	20210207018_bkg
+	aperture	64
+	beam	64
+	center	2048. 2016.428
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.83059
+		-41.20564
+		76.16468
+		-0.159094
+		0.3189194
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 65 2048. 2058.961
+	image	20210207018_bkg
+	aperture	65
+	beam	65
+	center	2048. 2058.961
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.89969
+		-42.14601
+		76.29959
+		-0.1672353
+		0.3109737
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 66 2048. 2102.059
+	image	20210207018_bkg
+	aperture	66
+	beam	66
+	center	2048. 2102.059
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		37.93856
+		-43.10228
+		76.43366
+		-0.1644534
+		0.3007946
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 67 2048. 2145.669
+	image	20210207018_bkg
+	aperture	67
+	beam	67
+	center	2048. 2145.669
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.00398
+		-44.0748
+		76.5487
+		-0.1734073
+		0.2820815
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 68 2048. 2189.812
+	image	20210207018_bkg
+	aperture	68
+	beam	68
+	center	2048. 2189.812
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.08742
+		-45.07153
+		76.69056
+		-0.1724615
+		0.2579316
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 69 2048. 2234.533
+	image	20210207018_bkg
+	aperture	69
+	beam	69
+	center	2048. 2234.533
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.15241
+		-46.08534
+		76.81984
+		-0.1720706
+		0.2384799
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 70 2048. 2279.82
+	image	20210207018_bkg
+	aperture	70
+	beam	70
+	center	2048. 2279.82
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.21551
+		-47.11426
+		76.94592
+		-0.1686087
+		0.2104341
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 71 2048. 2325.669
+	image	20210207018_bkg
+	aperture	71
+	beam	71
+	center	2048. 2325.669
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.29337
+		-48.16983
+		77.07738
+		-0.1722719
+		0.1727007
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 72 2048. 2372.128
+	image	20210207018_bkg
+	aperture	72
+	beam	72
+	center	2048. 2372.128
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.34476
+		-49.24859
+		77.20387
+		-0.1784729
+		0.12997
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 73 2048. 2419.159
+	image	20210207018_bkg
+	aperture	73
+	beam	73
+	center	2048. 2419.159
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.41846
+		-50.34455
+		77.32789
+		-0.1821728
+		0.08833618
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 74 2048. 2466.794
+	image	20210207018_bkg
+	aperture	74
+	beam	74
+	center	2048. 2466.794
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.48895
+		-51.46214
+		77.45991
+		-0.1908821
+		0.05060176
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 75 2048. 2515.033
+	image	20210207018_bkg
+	aperture	75
+	beam	75
+	center	2048. 2515.033
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.56654
+		-52.61728
+		77.58395
+		-0.2176979
+		-0.006714897
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 76 2048. 2563.902
+	image	20210207018_bkg
+	aperture	76
+	beam	76
+	center	2048. 2563.902
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.63432
+		-53.78614
+		77.70693
+		-0.2308435
+		-0.04567256
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 77 2048. 2613.409
+	image	20210207018_bkg
+	aperture	77
+	beam	77
+	center	2048. 2613.409
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.69475
+		-54.98772
+		77.82777
+		-0.2651734
+		-0.0959855
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 78 2048. 2663.582
+	image	20210207018_bkg
+	aperture	78
+	beam	78
+	center	2048. 2663.582
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.73325
+		-56.21327
+		77.95142
+		-0.2811366
+		-0.1348261
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 79 2048. 2714.334
+	image	20210207018_bkg
+	aperture	79
+	beam	79
+	center	2048. 2714.334
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.84829
+		-57.46659
+		78.07977
+		-0.3092296
+		-0.17162
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 80 2048. 2765.794
+	image	20210207018_bkg
+	aperture	80
+	beam	80
+	center	2048. 2765.794
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		38.91792
+		-58.74953
+		78.21181
+		-0.3266564
+		-0.2133744
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 81 2048. 2817.916
+	image	20210207018_bkg
+	aperture	81
+	beam	81
+	center	2048. 2817.916
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.00631
+		-60.06118
+		78.34782
+		-0.3531705
+		-0.233036
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 82 2048. 2870.735
+	image	20210207018_bkg
+	aperture	82
+	beam	82
+	center	2048. 2870.735
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.08773
+		-61.39334
+		78.4875
+		-0.368756
+		-0.2738047
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 83 2048. 2924.337
+	image	20210207018_bkg
+	aperture	83
+	beam	83
+	center	2048. 2924.337
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.09169
+		-62.7531
+		78.63714
+		-0.372821
+		-0.2785451
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 84 2048. 2978.557
+	image	20210207018_bkg
+	aperture	84
+	beam	84
+	center	2048. 2978.557
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.21628
+		-64.14082
+		78.80038
+		-0.3809522
+		-0.2739066
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 85 2048. 3033.53
+	image	20210207018_bkg
+	aperture	85
+	beam	85
+	center	2048. 3033.53
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.29601
+		-65.56102
+		78.9549
+		-0.3965033
+		-0.2969696
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 86 2048. 3089.256
+	image	20210207018_bkg
+	aperture	86
+	beam	86
+	center	2048. 3089.256
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.37201
+		-67.01087
+		79.12373
+		-0.405891
+		-0.3071783
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 87 2048. 3145.721
+	image	20210207018_bkg
+	aperture	87
+	beam	87
+	center	2048. 3145.721
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.46693
+		-68.49123
+		79.29321
+		-0.4226554
+		-0.3196037
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 88 2048. 3202.989
+	image	20210207018_bkg
+	aperture	88
+	beam	88
+	center	2048. 3202.989
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.52745
+		-70.00008
+		79.47256
+		-0.4255025
+		-0.3258339
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 89 2048. 3261.003
+	image	20210207018_bkg
+	aperture	89
+	beam	89
+	center	2048. 3261.003
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.63355
+		-71.55342
+		79.659
+		-0.4283083
+		-0.3244906
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 90 2048. 3319.837
+	image	20210207018_bkg
+	aperture	90
+	beam	90
+	center	2048. 3319.837
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.72079
+		-73.13744
+		79.83525
+		-0.4420094
+		-0.3229272
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 91 2048. 3379.495
+	image	20210207018_bkg
+	aperture	91
+	beam	91
+	center	2048. 3379.495
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.80871
+		-74.76797
+		80.0291
+		-0.4400105
+		-0.3299923
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 92 2048. 3439.978
+	image	20210207018_bkg
+	aperture	92
+	beam	92
+	center	2048. 3439.978
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		39.89767
+		-76.44018
+		80.22443
+		-0.4710318
+		-0.3253817
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 93 2048. 3501.298
+	image	20210207018_bkg
+	aperture	93
+	beam	93
+	center	2048. 3501.298
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		40.00401
+		-78.14976
+		80.41894
+		-0.4781246
+		-0.3183884
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 94 2048. 3563.564
+	image	20210207018_bkg
+	aperture	94
+	beam	94
+	center	2048. 3563.564
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		40.0406
+		-79.90862
+		80.63012
+		-0.4908029
+		-0.2894323
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 95 2048. 3626.6
+	image	20210207018_bkg
+	aperture	95
+	beam	95
+	center	2048. 3626.6
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		40.19746
+		-81.70107
+		80.85764
+		-0.5192083
+		-0.2582059
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 96 2048. 3690.608
+	image	20210207018_bkg
+	aperture	96
+	beam	96
+	center	2048. 3690.608
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		40.27505
+		-83.55518
+		81.08936
+		-0.5463986
+		-0.2338555
+
+# Thu 14:01:44 04-Mar-2021
+begin	aperture 20210207018_bkg 97 2048. 3755.519
+	image	20210207018_bkg
+	aperture	97
+	beam	97
+	center	2048. 3755.519
+	low	-2047. -7.
+	high	2048. 7.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		8.
+		4088.
+		40.3676
+		-85.44319
+		81.29975
+		-0.5659851
+		-0.1905946
+
