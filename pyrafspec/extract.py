@@ -367,6 +367,7 @@ def extract1d(calib=False, logfile=None, lamp='ThAr', lamp_exptime=None):
                 pass
 
         ref_lamp = ref_lst[int(n)]
+        ref_lamp = ref_lst[int(n)]
         ref_name = ref_lamp.replace('.fits','')
 
         iraf.ecid.unlearn()
@@ -423,21 +424,21 @@ def extract1d(calib=False, logfile=None, lamp='ThAr', lamp_exptime=None):
     iraf.ecreid.unlearn()
     iraf.ecreid.logfile = 'STDOUT, iraf.log'
     print(f'ref_name = "{ref_name}"')
-    #iraf.ecreid('@lamp_sum.lst', ref_name)
+    #iraf.ecreid('f@{lampsumlstname}', ref_name)
     iraf.ecreid('@lamp_sum1.lst', ref_name)
 
     _ = input('Press [Enter] to continue: ')
 
     iraf.refsp.unlearn()
-    iraf.refsp.referen = f'@lamp_sum1.lst'
+    iraf.refsp.referen = f'@lamp_sum.lst'
     iraf.refsp.sort    = 'DATE-STA'
     iraf.refsp.group   = ''
     iraf.refsp.time    = 'yes'
     iraf.refsp.logfile = 'STDOUT, iraf.log'
-    iraf.refsp(f'@star_sum1.lst')
-    iraf.refsp(f'@lamp_sum1.lst')
+    iraf.refsp(f'@{star_sumlstname}')
+    iraf.refsp(f'@{lamp_sumlstname}')
     if has_iodn:
-        copy_lstfile(iodn_sumlstname, 'iodn_sum1.lst', direcp = './') 
+        #copy_lstfile(iodn_sumlstname, 'iodn_sum1.lst', direcp = './') 
         iraf.refsp(f'@{iodn_sumlstname}')
 
 
@@ -448,19 +449,19 @@ def extract1d(calib=False, logfile=None, lamp='ThAr', lamp_exptime=None):
     star_1dslstname = os.path.join(direname, 'star_1ds.lst')
     prepare_lst(starlstname, '1ds', star_1dslstname)
     delete_fits(star_1dslstname)
-    iraf.dispcor(f'@star_sum1.lst', f'@{star_1dslstname}')
+    iraf.dispcor(f'@{star_sumlstname}', f'@{star_1dslstname}')
 
     lamp_1dslstname = os.path.join(direname, 'lamp_1ds.lst')
     prepare_lst(lamplstname, '1ds', lamp_1dslstname)
     delete_fits(lamp_1dslstname)
-    iraf.dispcor(f'@lamp_sum1.lst',f'@{lamp_1dslstname}')
+    iraf.dispcor(f'@{lamp_sumlstname}',f'@{lamp_1dslstname}')
 
     if has_iodn:
         iodn_1dslstname = os.path.join(direname, 'iodn_1ds.lst')
         prepare_lst(iodnlstname, '1ds', iodn_1dslstname)
         delete_fits(iodn_1dslstname)
-        iraf.dispcor(f'@iodn_sum1.lst', f'@{iodn1dslstname}')
-        delete_fits('iodn_sum1.lst')
+        iraf.dispcor(f'@{iodn_sumlstname}', f'@{iodn1dslstname}')
+        delete_fits(iodn_sumlstname)
 
 
     if calib:
@@ -528,10 +529,10 @@ def extract1d(calib=False, logfile=None, lamp='ThAr', lamp_exptime=None):
         color = row[0]
         os.remove(f'{direname}/flat_{color}_ovr.lst')
 
-    delete_fits('lamp_sum1.lst')
-    delete_fits('star_sum1.lst')
-    os.remove(f'{star_sum1lstname}')
-    os.remove(f'{lamp_sum1lstname}')
+    #delete_fits('lamp_sum1.lst')
+    #delete_fits('star_sum1.lst')
+    os.remove(f'{star_sumlstname}')
+    os.remove(f'{lamp_sumlstname}')
     os.remove(f'{star_ovrlstname}')
     os.remove(f'{star_fltlstname}')
     os.remove(f'{star_bkglstname}')

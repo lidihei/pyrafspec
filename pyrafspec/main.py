@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import os, sys, math, datetime, dateutil
-
+import argparse
 import copy
 
 import xml.dom as dom
@@ -484,6 +484,16 @@ def help():
     convert the 1-D spectra to ascii or fits files'''%__file__)
     print( )
 
+def main():
+    parser = argparse.ArgumentParser(description="pyrafspec: extract spectrum by using pyraf")
+
+    subparsers = parser.add_subparsers(dest='action')
+
+    # --clean--
+    clean_parser = subparsers.add_parser('clean', help='clean the directory after 1-D extraction')
+    clean_parser.add_argument('logfile', default=None,
+                              help='log file name')
+    clean_parser.set_defaults(func=clean)
 if __name__=='__main__':
 
     try:

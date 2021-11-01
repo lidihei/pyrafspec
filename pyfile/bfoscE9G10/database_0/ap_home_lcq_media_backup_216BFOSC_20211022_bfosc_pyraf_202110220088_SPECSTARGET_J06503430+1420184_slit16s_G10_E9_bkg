@@ -1,0 +1,341 @@
+# Mon 13:12:54 01-Nov-2021
+begin	aperture /home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg 1 1024. 239.129
+	image	/home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg
+	aperture	1
+	beam	1
+	center	1024. 239.129
+	low	-1023. -15.
+	high	1024. 15.
+	background
+		xmin -15.
+		xmax 15.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		4.
+		2044.
+		1.127498
+		-53.08069
+		2.14185
+		-0.2547382
+		-0.1510279
+
+# Mon 13:12:54 01-Nov-2021
+begin	aperture /home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg 2 1024. 267.3086
+	image	/home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg
+	aperture	2
+	beam	2
+	center	1024. 267.3086
+	low	-1023. -15.
+	high	1024. 15.
+	background
+		xmin -15.
+		xmax 15.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		4.
+		2044.
+		1.309613
+		-55.67009
+		2.565858
+		-0.03382938
+		-0.05910183
+
+# Mon 13:12:54 01-Nov-2021
+begin	aperture /home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg 3 1024. 299.3424
+	image	/home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg
+	aperture	3
+	beam	3
+	center	1024. 299.3424
+	low	-1023. -15.
+	high	1024. 15.
+	background
+		xmin -15.
+		xmax 15.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		4.
+		2044.
+		1.364133
+		-58.91593
+		2.704979
+		0.005843389
+		-0.01618742
+
+# Mon 13:12:54 01-Nov-2021
+begin	aperture /home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg 4 1024. 336.0519
+	image	/home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg
+	aperture	4
+	beam	4
+	center	1024. 336.0519
+	low	-1023. -15.
+	high	1024. 15.
+	background
+		xmin -15.
+		xmax 15.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		4.
+		2044.
+		1.40287
+		-62.67799
+		2.780262
+		-0.04734678
+		-0.04778885
+
+# Mon 13:12:54 01-Nov-2021
+begin	aperture /home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg 5 1024. 378.5284
+	image	/home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg
+	aperture	5
+	beam	5
+	center	1024. 378.5284
+	low	-1023. -15.
+	high	1024. 15.
+	background
+		xmin -15.
+		xmax 15.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		4.
+		2044.
+		1.503896
+		-66.88859
+		3.002833
+		8.975313E-5
+		0.002992263
+
+# Mon 13:12:54 01-Nov-2021
+begin	aperture /home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg 6 1024. 428.249
+	image	/home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg
+	aperture	6
+	beam	6
+	center	1024. 428.249
+	low	-1023. -15.
+	high	1024. 15.
+	background
+		xmin -15.
+		xmax 15.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		4.
+		2044.
+		1.608642
+		-71.83607
+		3.22762
+		0.0126249
+		0.0156991
+
+# Mon 13:12:54 01-Nov-2021
+begin	aperture /home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg 7 1024. 487.2434
+	image	/home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg
+	aperture	7
+	beam	7
+	center	1024. 487.2434
+	low	-1023. -15.
+	high	1024. 15.
+	background
+		xmin -15.
+		xmax 15.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		4.
+		2044.
+		1.719563
+		-77.71038
+		3.453024
+		-0.01214661
+		0.007323299
+
+# Mon 13:12:54 01-Nov-2021
+begin	aperture /home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg 8 1024. 558.3416
+	image	/home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg
+	aperture	8
+	beam	8
+	center	1024. 558.3416
+	low	-1023. -15.
+	high	1024. 15.
+	background
+		xmin -15.
+		xmax 15.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		4.
+		2044.
+		1.883216
+		-84.72105
+		3.776394
+		-0.008836678
+		0.01704032
+
+# Mon 13:12:54 01-Nov-2021
+begin	aperture /home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg 9 1024. 645.7279
+	image	/home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg
+	aperture	9
+	beam	9
+	center	1024. 645.7279
+	low	-1023. -15.
+	high	1024. 15.
+	background
+		xmin -15.
+		xmax 15.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		4.
+		2044.
+		2.062007
+		-93.32704
+		4.135407
+		-0.03771624
+		0.002223157
+
+# Mon 13:12:54 01-Nov-2021
+begin	aperture /home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg 10 1024. 755.6255
+	image	/home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg
+	aperture	10
+	beam	10
+	center	1024. 755.6255
+	low	-1023. -15.
+	high	1024. 15.
+	background
+		xmin -15.
+		xmax 15.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		4.
+		2044.
+		2.3071
+		-104.0667
+		4.582899
+		-0.05044125
+		0.01050517
+
+# Mon 13:12:54 01-Nov-2021
+begin	aperture /home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg 11 1024. 897.8495
+	image	/home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf/202110220088_SPECSTARGET_J06503430+1420184_slit16s_G10_E9_bkg
+	aperture	11
+	beam	11
+	center	1024. 897.8495
+	low	-1023. -15.
+	high	1024. 15.
+	background
+		xmin -15.
+		xmax 15.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	9
+		2.
+		5.
+		4.
+		2044.
+		2.70825
+		-117.8878
+		5.231139
+		-0.03045017
+		-0.02619088
+

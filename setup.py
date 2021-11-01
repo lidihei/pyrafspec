@@ -30,7 +30,9 @@ setup(
         install_requires=['numpy', 'astropy', 'matplotlib', 'pyraf'
                          ], # add any additional packages that 
         # needs to be installed along with your package. Eg: 'caer'
-        
+        entry_points={
+             'console_scripts': ['pyrafspec=pyrafspec.main:main'],
+                     },
         classifiers= [
             "Development Status :: beta",
             "Intended Audience :: Education",
