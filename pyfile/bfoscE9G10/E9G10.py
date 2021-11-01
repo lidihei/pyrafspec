@@ -6,7 +6,7 @@ dire = '/home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf'
 logname = 'liuchao_bfosc.log'
 logfile = os.path.join(dire, logname)
 
-
+'''
 ####################################################################################
 # convert the log file produced by 216 cm to the format which can be used by pyrafspec (*.obslog)
 date = '2021-10-22'
@@ -120,6 +120,7 @@ if new_ecid:
 
     iraf.ecid.unlearn()
     iraf.ecid.maxfeat = 100
+    iraf.ecid.coordli = 'linelists${lamp.lower()}.dat'
     iraf.ecid(ref_lamp)
 else:
     prompt = 'Cannot find reference in database.\n'
@@ -178,7 +179,7 @@ iraf.ecreid('@lamp_sum1.lst', ref_name)
 _ = input('Press [Enter] to continue: ')
 
 iraf.refsp.unlearn()
-iraf.refsp.referen = f'@lamp_sum.lst'
+iraf.refsp.referen = f'@lamp_sum1.lst'
 iraf.refsp.sort    = 'DATE-STA'
 iraf.refsp.group   = ''
 iraf.refsp.time    = 'yes'
@@ -203,4 +204,4 @@ lamp_1dslstname = os.path.join(direname, 'lamp_1ds.lst')
 prepare_lst(lamplstname, '1ds', lamp_1dslstname)
 delete_fits(lamp_1dslstname)
 iraf.dispcor(f'@{lamp_sumlstname}',f'@{lamp_1dslstname}')
-'''
+

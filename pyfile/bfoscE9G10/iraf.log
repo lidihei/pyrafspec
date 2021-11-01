@@ -1,0 +1,63 @@
+
+ECREIDENTIFY: NOAO/IRAF community V2.16.1+ snapshot lcq@lcq Mon 16:44:26 01-Nov-2021
+  Reference image = 202110220017_SPECSLAMP_FeAr_slit16s_G10_E9_sum, Refit = yes
+               Image    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+202110220017_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1     0.00634     0.00634  9.45E-6    INDEF
+202110220021_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      0.0468      0.0468  6.97E-5    INDEF
+202110220023_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      0.0699      0.0699  1.04E-4    INDEF
+202110220032_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.184      -0.184  -2.7E-4    INDEF
+202110220034_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1     -0.0157     -0.0157  -2.3E-5    INDEF
+202110220036_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.137      -0.137  -2.0E-4    INDEF
+202110220046_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1     0.00952     0.00952  1.42E-5    INDEF
+202110220048_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.177      -0.177  -2.6E-4    INDEF
+202110220057_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.198      -0.198  -3.0E-4    INDEF
+202110220059_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1     -0.0837     -0.0837  -1.2E-4    INDEF
+202110220068_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1     -0.0402     -0.0402  -6.0E-5    INDEF
+202110220070_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.475      -0.475  -7.1E-4    INDEF
+202110220080_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1       -0.24       -0.24  -3.6E-4    INDEF
+202110220082_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.286      -0.286  -4.3E-4    INDEF
+202110220092_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.273      -0.273  -4.1E-4    INDEF
+202110220094_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1     -0.0656     -0.0656  -9.8E-5    INDEF
+202110220105_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.557      -0.557  -8.3E-4    INDEF
+
+ECREIDENTIFY: NOAO/IRAF community V2.16.1+ snapshot lcq@lcq Mon 16:55:29 01-Nov-2021
+  Reference image = 202110220017_SPECSLAMP_FeAr_slit16s_G10_E9_sum, Refit = yes
+               Image    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+202110220017_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1    -0.00366    -0.00366  -5.5E-6    INDEF
+202110220021_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      0.0468      0.0468  6.97E-5    INDEF
+202110220023_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      0.0699      0.0699  1.04E-4    INDEF
+202110220032_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.184      -0.184  -2.7E-4    INDEF
+202110220034_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1     -0.0157     -0.0157  -2.3E-5    INDEF
+202110220036_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.137      -0.137  -2.0E-4    INDEF
+202110220046_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1     0.00952     0.00952  1.42E-5    INDEF
+202110220048_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.177      -0.177  -2.6E-4    INDEF
+202110220057_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.198      -0.198  -3.0E-4    INDEF
+202110220059_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1     -0.0837     -0.0837  -1.2E-4    INDEF
+202110220068_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1     -0.0402     -0.0402  -6.0E-5    INDEF
+202110220070_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.475      -0.475  -7.1E-4    INDEF
+202110220080_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1       -0.24       -0.24  -3.6E-4    INDEF
+202110220082_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.286      -0.286  -4.3E-4    INDEF
+202110220092_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.273      -0.273  -4.1E-4    INDEF
+202110220094_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1     -0.0656     -0.0656  -9.8E-5    INDEF
+202110220105_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.557      -0.557  -8.3E-4    INDEF
+
+ECREIDENTIFY: NOAO/IRAF community V2.16.1+ snapshot lcq@lcq Mon 17:17:42 01-Nov-2021
+  Reference image = 202110220017_SPECSLAMP_FeAr_slit16s_G10_E9_sum, Refit = yes
+               Image    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+202110220017_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1    -0.00366    -0.00366  -5.5E-6    INDEF
+202110220021_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      0.0468      0.0468  6.97E-5    INDEF
+202110220023_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      0.0699      0.0699  1.04E-4    INDEF
+202110220032_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.184      -0.184  -2.7E-4    INDEF
+202110220034_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1     -0.0157     -0.0157  -2.3E-5    INDEF
+202110220036_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.137      -0.137  -2.0E-4    INDEF
+202110220046_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1     0.00952     0.00952  1.42E-5    INDEF
+202110220048_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.177      -0.177  -2.6E-4    INDEF
+202110220057_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.198      -0.198  -3.0E-4    INDEF
+202110220059_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1     -0.0837     -0.0837  -1.2E-4    INDEF
+202110220068_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1     -0.0402     -0.0402  -6.0E-5    INDEF
+202110220070_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.475      -0.475  -7.1E-4    INDEF
+202110220080_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1       -0.24       -0.24  -3.6E-4    INDEF
+202110220082_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.286      -0.286  -4.3E-4    INDEF
+202110220092_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.273      -0.273  -4.1E-4    INDEF
+202110220094_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1     -0.0656     -0.0656  -9.8E-5    INDEF
+202110220105_SPECSLAMP_FeAr_slit16s_G10_E9_sum    1/1     1/1      -0.557      -0.557  -8.3E-4    INDEF
