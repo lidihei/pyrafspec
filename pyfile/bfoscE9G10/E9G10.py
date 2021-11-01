@@ -6,7 +6,7 @@ dire = '/home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf'
 logname = 'liuchao_bfosc.log'
 logfile = os.path.join(dire, logname)
 
-
+'''
 ####################################################################################
 # convert the log file produced by 216 cm to the format which can be used by pyrafspec (*.obslog)
 date = '2021-10-22'
@@ -64,16 +64,13 @@ extract1d(logfile=logfile, lamp='FeAr', lamp_exptime=300)
 #########################################################################
 '''
 #test pyraf
-from pyraf import iraf
-iraf.noao(_doprint=0)
-iraf.imred(_doprint=0)
-iraf.echelle(_doprint=0)
 direname = dire
 star_sumlstname =  os.path.join(direname,'star_sum.lst')
 star_bkglstname =  os.path.join(direname,'star_bkg.lst')
 starlstname =  os.path.join(direname,'star.lst')
 flatfitsname = os.path.join(direname,'flat.fits')
 lamp_sumlstname =  os.path.join(direname,'lamp_sum.lst')
+lamplstname =  os.path.join(direname,'lamp.lst')
 prepare_lst(starlstname,'sum',star_sumlstname)
 new_ecid = True
 if new_ecid:
@@ -168,24 +165,25 @@ else:
             pass
 
 
-#copy_lstfile(lamp_sumlstname, 'lamp_sum1.lst', direcp = './') 
-#copy_lstfile(star_sumlstname, 'star_sum1.lst', direcp = './') 
+copy_lstfile(lamp_sumlstname, 'lamp_sum_tmp.lst', direcp = './') 
+#copy_lstfile(star_sumlstname, 'star_sum_tmp.lst', direcp = './') 
 iraf.ecreid.unlearn()
 iraf.ecreid.logfile = 'STDOUT, iraf.log'
 print(f'ref_name = "{ref_name}"')
 #iraf.ecreid(f'@{lamp_sumlstname}', ref_name)
-iraf.ecreid('@lamp_sum1.lst', ref_name)
+iraf.ecreid('@lamp_sum_tmp.lst', ref_name)
 
 _ = input('Press [Enter] to continue: ')
 
 iraf.refsp.unlearn()
-iraf.refsp.referen = f'@lamp_sum1.lst'
-iraf.refsp.sort    = 'DATE-STA'
+iraf.refsp.referen = f'@lamp_sum_tmp.lst'
+#iraf.refsp.sort    = 'DATE-STA'
 iraf.refsp.group   = ''
 iraf.refsp.time    = 'yes'
 iraf.refsp.logfile = 'STDOUT, iraf.log'
 iraf.refsp(f'@{star_sumlstname}')
 iraf.refsp(f'@{lamp_sumlstname}')
+has_iodn = False
 if has_iodn:
     #copy_lstfile(iodn_sumlstname, 'iodn_sum1.lst', direcp = './') 
     iraf.refsp(f'@{iodn_sumlstname}')
@@ -204,4 +202,4 @@ lamp_1dslstname = os.path.join(direname, 'lamp_1ds.lst')
 prepare_lst(lamplstname, '1ds', lamp_1dslstname)
 delete_fits(lamp_1dslstname)
 iraf.dispcor(f'@{lamp_sumlstname}',f'@{lamp_1dslstname}')
-'''
+

@@ -20,7 +20,8 @@ from .config import *
 from .mosaicflat import *
 
 
-def extract1d(calib=False, logfile=None, lamp='ThAr', lamp_exptime=None):
+def extract1d(calib=False, logfile=None, lamp='ThAr', lamp_exptime=None,
+              starlstname_wv=None, lamplstname_wv=None):
     from pyraf import iraf
 
     # remove the old iraf.log file
@@ -421,21 +422,29 @@ def extract1d(calib=False, logfile=None, lamp='ThAr', lamp_exptime=None):
 
     
     copy_lstfile(lamp_sumlstname, 'lamp_sum_tmp.lst', direcp = './') 
-    copy_lstfile(star_sumlstname, 'star_sum_tmp.lst', direcp = './') 
+    #copy_lstfile(star_sumlstname, 'star_sum_tmp.lst', direcp = './') 
     iraf.ecreid.unlearn()
     iraf.ecreid.logfile = 'STDOUT, iraf.log'
     print(f'ref_name = "{ref_name}"')
     #iraf.ecreid('f@{lampsumlstname}', ref_name)
-    iraf.ecreid('@lamp_sum1.lst', ref_name)
+    iraf.ecreid('@lamp_sum_tmp.lst', ref_name)
 
     _ = input('Press [Enter] to continue: ')
 
     iraf.refsp.unlearn()
     iraf.refsp.referen = f'@lamp_sum_tmp.lst'
-    iraf.refsp.sort    = 'DATE-STA'
+    #iraf.refsp.sort    = 'DATE-STA'
     iraf.refsp.group   = ''
     iraf.refsp.time    = 'yes'
     iraf.refsp.logfile = 'STDOUT, iraf.log'
+    if starlstname_wv is not None:
+       starlstname = starlstname_wv
+       prepare_lst(lamplstname, '1ds', lamp_1dslstname)
+       prepare_lst(lamplstname, 'sum', lamp_1dslstname)
+    if lamplstname_wv is not None:
+       lamplstname = lamplstname_wv
+       prepare_lst(lamplstname, '1ds', lamp_1dslstname)
+       prepare_lst(lamplstname, 'sum', lamp_1dslstname)
     iraf.refsp(f'@{star_sumlstname}')
     iraf.refsp(f'@{lamp_sumlstname}')
     if has_iodn:
