@@ -6,7 +6,7 @@ dire = '/home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf'
 logname = 'liuchao_bfosc.log'
 logfile = os.path.join(dire, logname)
 
-'''
+
 ####################################################################################
 # convert the log file produced by 216 cm to the format which can be used by pyrafspec (*.obslog)
 date = '2021-10-22'
@@ -204,4 +204,4 @@ lamp_1dslstname = os.path.join(direname, 'lamp_1ds.lst')
 prepare_lst(lamplstname, '1ds', lamp_1dslstname)
 delete_fits(lamp_1dslstname)
 iraf.dispcor(f'@{lamp_sumlstname}',f'@{lamp_1dslstname}')
-
+'''

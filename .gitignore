@@ -4,6 +4,7 @@
 *.ipa
 *.apk
 
+*iraf.log
 data/*
 ipynb/.ipynb_checkpoints
 ipynb/model
@@ -17,6 +18,7 @@ pyfile/*/pyraf
 pyfile/*/uparm
 pyfile/*/logfile
 pyfile/*/database
+pyfile/*/*.lst
 pyfile/*/database_0
 pyfile/*/*.fits
 *__pycache__*

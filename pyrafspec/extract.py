@@ -367,12 +367,13 @@ def extract1d(calib=False, logfile=None, lamp='ThAr', lamp_exptime=None):
                 pass
 
         ref_lamp = ref_lst[int(n)]
-        ref_lamp = ref_lst[int(n)]
+        ref_lamp = os.path.basename(ref_lamp)
         ref_name = ref_lamp.replace('.fits','')
 
         iraf.ecid.unlearn()
         iraf.ecid.maxfeat = 100
         iraf.ecid(ref_lamp)
+        iraf.ecid.coordli = 'linelists${lamp.lower()}.dat'
     else:
         prompt = 'Cannot find reference in database.\n'
         prompt += 'Put an `ec` file in database/ and press [Enter] to refresh: '
@@ -419,8 +420,8 @@ def extract1d(calib=False, logfile=None, lamp='ThAr', lamp_exptime=None):
                 pass
 
     
-    copy_lstfile(lamp_sumlstname, 'lamp_sum1.lst', direcp = './') 
-    copy_lstfile(star_sumlstname, 'star_sum1.lst', direcp = './') 
+    copy_lstfile(lamp_sumlstname, 'lamp_sum_tmp.lst', direcp = './') 
+    copy_lstfile(star_sumlstname, 'star_sum_tmp.lst', direcp = './') 
     iraf.ecreid.unlearn()
     iraf.ecreid.logfile = 'STDOUT, iraf.log'
     print(f'ref_name = "{ref_name}"')
@@ -430,7 +431,7 @@ def extract1d(calib=False, logfile=None, lamp='ThAr', lamp_exptime=None):
     _ = input('Press [Enter] to continue: ')
 
     iraf.refsp.unlearn()
-    iraf.refsp.referen = f'@lamp_sum.lst'
+    iraf.refsp.referen = f'@lamp_sum_tmp.lst'
     iraf.refsp.sort    = 'DATE-STA'
     iraf.refsp.group   = ''
     iraf.refsp.time    = 'yes'
