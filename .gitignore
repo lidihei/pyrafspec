@@ -17,6 +17,8 @@ pyfile/*/pyraf
 pyfile/*/uparm
 pyfile/*/logfile
 pyfile/*/database
+pyfile/*/database_0
+pyfile/*/*.fits
 *__pycache__*
 
 
