@@ -25,7 +25,7 @@ fwv.close()
 
 
 
-'''
+
 
 ####################################################################################
 # convert the log file produced by 216 cm to the format which can be used by pyrafspec (*.obslog)
@@ -241,4 +241,4 @@ lamp_1dslstname = os.path.join(direname, 'lamp_1ds.lst')
 prepare_lst(lamplstname, '1ds', lamp_1dslstname)
 delete_fits(lamp_1dslstname)
 iraf.dispcor(f'@{lamp_sumlstname}',f'@{lamp_1dslstname}')
-
+'''
