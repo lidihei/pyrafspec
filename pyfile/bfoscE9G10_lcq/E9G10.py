@@ -2,7 +2,7 @@ from pyrafspec.main import *
 import os
 from pyrafspec import bfosclog, default_logheader
 
-dire = '/home/lcq/media/backup/216BFOSC/20211022_bfosc_pyraf'
+dire = '/home/lcq/media/backup/216BFOSC/20211023_bfosc_lcq'
 logname = 'liuchao_bfosc.log'
 logfile = os.path.join(dire, logname)
 
@@ -25,7 +25,7 @@ fwv.close()
 
 
 
-'''
+
 
 ####################################################################################
 # convert the log file produced by 216 cm to the format which can be used by pyrafspec (*.obslog)
@@ -79,9 +79,7 @@ direname = dire
 direname = dire
 color = 'Blue'
 
-extract1d(logfile=logfile, lamp='FeAr', lamp_exptime=300, 
-         starlstname_wv=starlstname_wv, 
-         lamplstname_wv = lamplstname_wv)
+extract1d(logfile=logfile, lamp='FeAr', lamp_exptime=300)
 
 #########################################################################
 '''
@@ -99,7 +97,7 @@ flatfitsname = os.path.join(direname,'flat.fits')
 lamp_sumlstname =  os.path.join(direname,'lamp_sum.lst')
 lamplstname =  os.path.join(direname,'lamp.lst')
 prepare_lst(starlstname,'sum',star_sumlstname)
-new_ecid = False
+new_ecid = True
 if new_ecid:
     # delete the existing ec files corresponding to the filenames
     # in lamp_sum.lst
@@ -200,11 +198,7 @@ lamplstname_wv
 #prepare_lst(lamplstname, '1ds', lamp_1dslstname)
 prepare_lst(lamplstname_wv, 'sum', lamp_sumlstname_wv)
 
-copy_lstfile(lamp_sumlstname, 'lamp_sum_tmp.lst', direcp = './')
-if not new_ecid:
-   ifile = open('lamp_sum_tmp.lst', 'a')
-   ifile.writelines(f'{ref_name}.fits\n')
-   ifile.close()
+copy_lstfile(lamp_sumlstname, 'lamp_sum_tmp.lst', direcp = './') 
 #copy_lstfile(star_sumlstname, 'star_sum_tmp.lst', direcp = './') 
 iraf.ecreid.unlearn()
 iraf.ecreid.logfile = 'STDOUT, iraf.log'
@@ -241,4 +235,5 @@ lamp_1dslstname = os.path.join(direname, 'lamp_1ds.lst')
 prepare_lst(lamplstname, '1ds', lamp_1dslstname)
 delete_fits(lamp_1dslstname)
 iraf.dispcor(f'@{lamp_sumlstname}',f'@{lamp_1dslstname}')
-
+umlstname
+'''

@@ -18,6 +18,7 @@ from .mathfunc import *
 from .fitslist import *
 from .config import *
 from .mosaicflat import *
+from .tools import *
 
 
 def extract1d(calib=False, logfile=None, lamp='ThAr', lamp_exptime=None,
@@ -431,22 +432,32 @@ def extract1d(calib=False, logfile=None, lamp='ThAr', lamp_exptime=None,
 
     _ = input('Press [Enter] to continue: ')
 
+    if starlstname_wv is None:
+       star_sumlstname_wv =star_sumlstname
+    else:
+       star_sumlstname_wv = os.path.join(direname, 'star_sumlstname_wv.lst')
+       star_1dslstname = os.path.join(direname, 'star_1dslstname_wv.lst')
+       prepare_lst(starlstname_wv, '1ds', star_1dslstname)
+       prepare_lst(starlstname_wv, 'sum', star_sumlstname_wv)
+    if lamplstname_wv is None:
+       lamp_sumlstname_wv =_lamp_sumlstname
+    else:
+       lamp_sumlstname_wv = os.path.join(direname, 'lamp_sumlstname_wv.lst')
+       prepare_lst(lamplstname_wv, 'sum', lamp_sumlstname_wv)
+
+    if not new_ecid:
+       ifile = open('lamp_sum_tmp.lst', 'a')
+       ifile.writelines(f'{ref_name}.fits\n')
+       ifile.close()
+
     iraf.refsp.unlearn()
     iraf.refsp.referen = f'@lamp_sum_tmp.lst'
     #iraf.refsp.sort    = 'DATE-STA'
     iraf.refsp.group   = ''
     iraf.refsp.time    = 'yes'
     iraf.refsp.logfile = 'STDOUT, iraf.log'
-    if starlstname_wv is not None:
-       starlstname = starlstname_wv
-       prepare_lst(lamplstname, '1ds', lamp_1dslstname)
-       prepare_lst(lamplstname, 'sum', lamp_1dslstname)
-    if lamplstname_wv is not None:
-       lamplstname = lamplstname_wv
-       prepare_lst(lamplstname, '1ds', lamp_1dslstname)
-       prepare_lst(lamplstname, 'sum', lamp_1dslstname)
-    iraf.refsp(f'@{star_sumlstname}')
-    iraf.refsp(f'@{lamp_sumlstname}')
+    iraf.refsp(f'@{star_sumlstname_wv}')
+    iraf.refsp(f'@{lamp_sumlstname_wv}')
     if has_iodn:
         #copy_lstfile(iodn_sumlstname, 'iodn_sum1.lst', direcp = './') 
         iraf.refsp(f'@{iodn_sumlstname}')
@@ -459,7 +470,7 @@ def extract1d(calib=False, logfile=None, lamp='ThAr', lamp_exptime=None,
     star_1dslstname = os.path.join(direname, 'star_1ds.lst')
     prepare_lst(starlstname, '1ds', star_1dslstname)
     delete_fits(star_1dslstname)
-    iraf.dispcor(f'@{star_sumlstname}', f'@{star_1dslstname}')
+    iraf.dispcor(f'@{star_sumlstname_wv}', f'@{star_1dslstname}')
 
     lamp_1dslstname = os.path.join(direname, 'lamp_1ds.lst')
     prepare_lst(lamplstname, '1ds', lamp_1dslstname)
@@ -525,13 +536,13 @@ def extract1d(calib=False, logfile=None, lamp='ThAr', lamp_exptime=None,
 
         star_blzlstname = os.path.join(direname, 'star_blz.lst')
         prepare_lst(starlstname, 'blz', star_blzlstname)
-        delete_fits(f'star_blz.lst')
+        delete_fits(star_blzlstname)
         iraf.imarith(f'@{star_1dslstname}','/',f'{direname}/flat_as.fits',f'@{star_blzlstname}')
 
         if has_iodn:
            iodn_blzlstname = os.path.join(direname, 'iodn_blz.lst')
            prepare_lst(iodnlstname, 'blz', iodn_blzlstname)
-           delete_fits(f'iodn_blz.lst')
+           delete_fits(iodn_blzlstname)
            iraf.imarith(f'@{iodn_1dslstname}','/',f'{direname}/flat_as.fits',f'@{iodn_blzlstname}')
 
     # delete deprecated files
