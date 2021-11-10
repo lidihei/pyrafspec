@@ -20,29 +20,26 @@ from .config import *
 from .mosaicflat import *
 from .tools import *
 from glob import glob
+from pyraf import iraf
 
+def class extract1d(object):
 
-def extract1d(calib=False, apedit=True, apsum=True, logfile=None, lamp='ThAr', lamp_exptime=None,
-              starlstname_wv=None, lamplstname_wv=None, refspsort='DATE-STA',\
-             lampreference=None):
-    '''
-    starlstname: [str] e.g. star.lst
-                 dire/ljg2m401-yf01-20210104-0182-e00.fits
-                 dire/ljg2m401-yf01-20210104-0253-e00.fits
-    lampreference: [str] e.g. lamp-ref.fits, which should locate in the working directory, and eclamp-ref be in database
-    '''
-    from pyraf import iraf
+    def __init_(self, calib=False, logfile=None, lamp='ThAr', lamp_exptime=None,
+              starlstname_wv=None, lamplstname_wv=None, refspsort='DATE-STA'):
+        
+       # remove the old iraf.log file
+       if not calib and os.path.exists('iraf.log'):
+           os.remove('iraf.log')
 
-    # remove the old iraf.log file
-    if not calib and os.path.exists('iraf.log'):
-        os.remove('iraf.log')
+       if not calib:
+           os.system('mkiraf')
+       if (logfile is None) or (logfile is ''):
+          logfile = find_logfile()
+       log = read_log(logfile)
+       print('Obs Log File =',logfile)
+def extract1d(calib=False, logfile=None, lamp='ThAr', lamp_exptime=None,
+              starlstname_wv=None, lamplstname_wv=None, refspsort='DATE-STA'):
 
-    if not calib:
-        os.system('mkiraf')
-    if (logfile is None) or (logfile is ''):
-       logfile = find_logfile()
-    log = read_log(logfile)
-    print('Obs Log File =',logfile)
 
     # initialize IRAF
     print( )
@@ -131,7 +128,7 @@ def extract1d(calib=False, apedit=True, apsum=True, logfile=None, lamp='ThAr', l
     iraf.apedit.nsum    = 10
     iraf.apedit.width   = 20.0
     iraf.apedit.radius  = 10.0
-    if not calib and apedit:
+    if not calib:
         #os.system(f'cp {direname}/flat.fits ./')
         iraf.apedit(flatfitsname)
         #os.system('rm flat.fits')
@@ -147,7 +144,7 @@ def extract1d(calib=False, apedit=True, apsum=True, logfile=None, lamp='ThAr', l
     iraf.aptrace.functio = 'legendre'
     iraf.aptrace.order   = 5
     iraf.aptrace.niterate   = 7
-    if not calib and apedit:
+    if not calib:
         #os.system(f'cp {direname}/flat.fits ./')
         iraf.aptrace(flatfitsname)
         #os.system('rm flat.fits')
@@ -169,7 +166,7 @@ def extract1d(calib=False, apedit=True, apsum=True, logfile=None, lamp='ThAr', l
     iraf.apflatten.order   = 8
     iraf.apflatten.niterat = 5
     flat_nfitsname = os.path.join(direname, 'flat_n.fits')
-    if not calib and apedit:
+    if not calib:
         delete_fits(flat_nfitsname)
         #os.system(f'cp {direname}/flat.fits ./')
         iraf.apflatten(flatfitsname,flat_nfitsname)
@@ -184,7 +181,7 @@ def extract1d(calib=False, apedit=True, apsum=True, logfile=None, lamp='ThAr', l
     lamp_fltlstname = os.path.join(direname,'lamp_flt.lst')
     prepare_lst(lamplstname, 'ovr', lamp_ovrlstname)
     prepare_lst(lamplstname, 'flt', lamp_fltlstname)
-    if not calib and apedit:
+    if not calib:
         delete_fits(lamp_fltlstname)
         iraf.imarith(f'@{lamp_ovrlstname}','/',flat_nfitsname,f'@{lamp_fltlstname}')
 
@@ -195,7 +192,7 @@ def extract1d(calib=False, apedit=True, apsum=True, logfile=None, lamp='ThAr', l
     star_fltlstname = os.path.join(direname,'star_flt.lst')
     prepare_lst(starlstname, 'ovr', star_ovrlstname)
     prepare_lst(starlstname, 'flt', star_fltlstname)
-    if not calib and apedit:
+    if not calib:
         delete_fits(star_fltlstname)
         iraf.imarith(f'@{star_ovrlstname}','/',flat_nfitsname, f'@{star_fltlstname}')
 
@@ -207,7 +204,7 @@ def extract1d(calib=False, apedit=True, apsum=True, logfile=None, lamp='ThAr', l
         iodn_fltlstname = os.path.join(direname, 'iodn_flt.lst')
         prepare_lst(iodnlstname, 'ovr', iodn_ovrlstname)
         prepare_lst(iodnlstname, 'flt', iodn_fltlstname)
-        if not calib and apedit:
+        if not calib:
             delete_fits(iodn_fltlstname)
             iraf.imarith(f'@{iodn_ovrlstname}','/',flat_nfitsname,f'@{iodn_fltlstname}')
 
@@ -252,14 +249,14 @@ def extract1d(calib=False, apedit=True, apsum=True, logfile=None, lamp='ThAr', l
     iraf.apscat2.niterate    = 5
     star_bkglstname =  os.path.join(direname,'star_bkg.lst')
     prepare_lst(starlstname, 'bkg', star_bkglstname)
-    if not calib and apedit:
+    if not calib:
         delete_fits(star_bkglstname)
         iraf.apscatter(f'@{star_fltlstname}', f'@{star_bkglstname}')
 
     if has_iodn:
         iodn_bkglstname =  os.path.join(direname,'iodn_bkg.lst')
         prepare_lst(iodnlstname, 'bkg', iodn_bkglstname)
-        if not calib and apedit:
+        if not calib:
             delete_fits(iodn_bkglstname)
             iraf.apscatter(f'@{iodn_fltlstname}', f'@{iodn_bkglstname}')
 
@@ -298,7 +295,7 @@ def extract1d(calib=False, apedit=True, apsum=True, logfile=None, lamp='ThAr', l
     iraf.apsum.extras  = 'no'    # Extract sky, sigma, etc.?
     iraf.apsum.review  = 'no'    # Review extractions?
     iraf.apsum.weights = weights # Extraction weights (none|variance)
-    if not calib or apsum:
+    if not calib:
         delete_fits(star_sumlstname)
         iraf.apsum(f'@{star_bkglstname}')
 
@@ -306,7 +303,7 @@ def extract1d(calib=False, apedit=True, apsum=True, logfile=None, lamp='ThAr', l
     lamp_sumlstname = os.path.join(direname, 'lamp_sum.lst')
     prepare_lst(lamplstname,'sum',lamp_sumlstname)
     iraf.apsum.output  = f'@{lamp_sumlstname}'
-    if not calib and apedit:
+    if not calib:
         delete_fits(lamp_sumlstname)
         iraf.apsum(f'@{lamp_fltlstname}')
 
@@ -314,7 +311,7 @@ def extract1d(calib=False, apedit=True, apsum=True, logfile=None, lamp='ThAr', l
         prepare_lst(iodnlstname,'sum',iodn_sumlstname)
         iodn_sumlstname = os.path.join(direname, 'iodn_sum.lst')
         iraf.apsum.output  = f'@{iodn_sumlstname}'
-        if not calib and epedit:
+        if not calib:
             delete_fits(iodn_sumlstname)
             iraf.apsum(f'@{iodn_bkglstname}')
 
@@ -346,7 +343,7 @@ def extract1d(calib=False, apedit=True, apsum=True, logfile=None, lamp='ThAr', l
             fn = row.strip()
             _direname = os.path.dirname(fn)
             _basename = os.path.basename(fn)
-            ecfn = os.path.join('database', 'ec'+_basename.replace('.fits',''))
+            ecfn = f'{_direname}/ec'+_basename.replace('.fits','')
             if os.path.exists(ecfn):
                 os.remove(ecfn)
         file.close()
@@ -365,9 +362,6 @@ def extract1d(calib=False, apedit=True, apsum=True, logfile=None, lamp='ThAr', l
             print(' [%02d] %s %6.2f s'%(no,row,exptime))
             no += 1
         file.close()
-        if lampreference is not None:
-           ref_lst[no] = lampreference
-           print(' [%02d] %s'%(no,lampreference))
 
         # Now the user have to choose a lamp file to identify wavelengths
         while (True):
@@ -434,11 +428,7 @@ def extract1d(calib=False, apedit=True, apsum=True, logfile=None, lamp='ThAr', l
                 pass
 
     
-    copy_lstfile(lamp_sumlstname, 'lamp_sum_tmp.lst', direcp = './')
-    if lampreference is not None:
-       ifile = open('lamp_sum_tmp.lst', 'a')
-       ifile.writelines(lampreference)
-       ifile.close()
+    copy_lstfile(lamp_sumlstname, 'lamp_sum_tmp.lst', direcp = './') 
     #copy_lstfile(star_sumlstname, 'star_sum_tmp.lst', direcp = './') 
     iraf.ecreid.unlearn()
     iraf.ecreid.logfile = 'STDOUT, iraf.log'
@@ -457,16 +447,9 @@ def extract1d(calib=False, apedit=True, apsum=True, logfile=None, lamp='ThAr', l
        prepare_lst(starlstname_wv, 'sum', star_sumlstname_wv)
     if lamplstname_wv is None:
        lamp_sumlstname_wv =lamp_sumlstname
-       lamp_sum_wvtmpname = 'lamp_sum_tmp.lst'
     else:
        lamp_sumlstname_wv = os.path.join(direname, 'lamp_sumlstname_wv.lst')
        prepare_lst(lamplstname_wv, 'sum', lamp_sumlstname_wv)
-       lamp_sum_wvtmpname ='lamp_sum_wv_tmp.lst'
-       copy_lstfile(lamp_sumlstname_wv, lamp_sum_wvtmpname, direcp = './')
-       if lampreference is not None:
-          ifile = open(lamp_sum_wvtmpname, 'a')
-          ifile.writelines(lampreference)
-          ifile.close()
 
     if not new_ecid:
        ifile = open('lamp_sum_tmp.lst', 'a')
@@ -474,17 +457,10 @@ def extract1d(calib=False, apedit=True, apsum=True, logfile=None, lamp='ThAr', l
        ifile.close()
 
     iraf.refsp.unlearn()
-    #iraf.refsp.referen = f'@lamp_sum_tmp.lst'
-    iraf.refsp.referen = f'@{lamp_sum_wvtmpname}'
-    if refspsort is None:
-       iraf.refsp.sort    = ''
-    else:
-       iraf.refsp.sort = refspsort
-    if lamplstname_wv is None:
-       iraf.refsp.time    = 'yes'
-    else: 
-      iraf.refsp.time    = 'no'
+    iraf.refsp.referen = f'@lamp_sum_tmp.lst'
+    iraf.refsp.sort    = refspsort
     iraf.refsp.group   = ''
+    iraf.refsp.time    = 'yes'
     iraf.refsp.logfile = 'STDOUT, iraf.log'
     iraf.refsp(f'@{star_sumlstname_wv}')
     iraf.refsp(f'@{lamp_sumlstname_wv}')

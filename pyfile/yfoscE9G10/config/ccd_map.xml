@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<image>
+
+<readout>
+    <data>
+        <zero>0,800</zero>
+        <shape>1200,3150</shape>
+    </data>
+    <overscan align_axis='x'>
+        <zero>2100,800</zero>
+        <shape>49,3150</shape>
+    </overscan>
+</readout>
+
+</image>

@@ -45,6 +45,22 @@ class LogItem(object):
         fn_lst = []
         if '%fname' in filename_composition:
            filename = filename_composition.replace('%fname', self.fname)
+        elif '{fnamefix' in filename_composition:
+              filename_composition = filename_composition.replace('{fnamefix}', '{0}')
+              if '{year' in filename_composition:
+                  filename_composition = filename_composition.replace('{year', '{2')
+              if '{month' in filename_composition:
+                  filename_composition = filename_composition.replace('{month', '{3')
+              if '{day' in filename_composition:
+                 filename_composition = filename_composition.replace('{day', '{4')
+              if '{id' in filename_composition:
+                 filename_composition = filename_composition.replace('{id', '{1')
+              year = self.date.year
+              month = self.date.month
+              day = self.date.day
+              fnamefix = self.fnamefix
+              idi = self.id
+              filename = filename_composition.format(fnamefix, idi, year, month, day)
         else:
            i=0
            while(True):
@@ -142,7 +158,7 @@ class Log(object):
                     if ((item.object.lower() in OBJECT_LST) or
                         (item.object.lower() in  CALIB_LST)):
                         continue
-                elif object != None and item.object!=object.lower():
+                elif object != None and item.object.lower()!=object.lower():
                     continue
                 if exptime != None and abs(item.exptime-exptime)>1e-6:
                     continue
@@ -235,6 +251,8 @@ def read_log(filename):
     'iodine':'Iodn',
     'comp':'Comp',
     'thar':'ThAr',
+    'fear':'FeAr',
+    'hene': 'HeNe'
     }
     print(filename)
     logfile = open(filename)
@@ -337,6 +355,14 @@ def read_log(filename):
                fname = g[pos+1].strip()
                for item in item_lst:
                    item.fname = fname
+
+            # find fnamefix
+            if ('fnamefix' in col_lst):
+               #print('lijiao, fnamefix')
+               pos = col_lst.index('fnamefix')
+               fnamefix = g[pos+1].strip()
+               for item in item_lst:
+                   item.fnamefix = fnamefix
 
             # find object
             pos = col_lst.index('object')

@@ -1,0 +1,3 @@
+cp hene.dat iraf_install_directory/noao/lib/linelists/
+
+in my cases: iraf_install_directory = /home/lcq/programs/iraf-2.16.1-2018.11.01/noao/lib/linelists

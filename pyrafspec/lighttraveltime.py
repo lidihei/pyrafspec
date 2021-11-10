@@ -1,0 +1,33 @@
+from astropy.time import Time
+from PyAstronomy import pyasl
+from astropy import coordinates as coord
+def eval_ltt(ra=62.794724868, dec=50.7082235439, jd=2456326.4583333, site=None, kind='barycentric', barycorr=True):                                                                                                            
+    """ evaluate the jd 
+    parameters
+    ----------
+    ra, dec: the coordinate of object
+    jd: the julian date of observation (UTC time)
+    site: the site of observatory
+    return
+    ------
+    jd_llt: the bjd of hjd
+    ltt: light_travel_time
+    if barycorr=True return the barycentric correction
+    # conf: https://docs.astropy.org/en/stable/time/
+    # defaut site is Xinglong
+    # coord.EarthLocation.from_geodetic(lat=26.6951*u.deg, lon=100.03*u.deg, height=3200*u.m) lijiang
+    """
+    if site is None:
+        site = coord.EarthLocation.of_site('Beijing Xinglong Observatory')
+    # sky position
+    ip_peg = coord.SkyCoord(ra, dec, unit=(u.deg, u.deg), frame='icrs')
+    # time
+    times = Time(jd, format='jd', scale='utc', location=site)
+    # evaluate ltt
+    ltt = times.light_travel_time(ip_peg,kind)
+    jd_llt = times.utc + ltt
+    if barycorr is True:
+       _barycorr = ip_peg.radial_velocity_correction(obstime=Time(times.iso), location=site)
+       return jd_llt.jd, ltt, _barycorr
+    else:
+       return jd_llt.jd, ltt

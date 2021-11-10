@@ -20,7 +20,7 @@ from .overscan import *
 def comb_bias(bias_lst):
     return np.median(np.array([pf.getdata(fp) for fp in bias_lst], dtype=np.float32), axis=0)
 
-def biassubtract(logfile=None, configfile=None):
+def biassubtract(logfile=None, configfile=None, rot90=False):
 
     ''' overscan corrections'''
     if configfile is None:
@@ -55,6 +55,8 @@ def biassubtract(logfile=None, configfile=None):
             data,head = pf.getdata(filename, header=True)
             data = large_rect.cut_data(data)
             frame = data - bias
+            if rot90:
+               frame = np.rot90(frame)
 
             #pf.writeto('bias.fits',bias)
             ovs_filename = '.'.join(filename.split('.')[0:-1])+'_ovr.fits'

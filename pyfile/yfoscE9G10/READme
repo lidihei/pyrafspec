@@ -1,0 +1,39 @@
+decompress *.fz files
+- funpack *.fz
+
+ubuntu install funpac
+- sudo apt install libcfisio-dev
+
+yfosc fits file *-(xbwedg)*.fits, where
+x = experimential,
+b = bias,
+d = dark,
+w = lamp or flat,
+e = expose (science),
+g = guid
+
+
+trace line fit order = 3
+
+
+editer order=14
+
+order10 --> order7(of Echelle_YFOSC_G10_E9-FeAr-HeNe-ZhangJujia.pdf)
+order9 --> order8(of Echelle_YFOSC_G10_E9-FeAr-HeNe-ZhangJujia.pdf)
+order8 --> order9(of Echelle_YFOSC_G10_E9-FeAr-HeNe-ZhangJujia.pdf)
+order7 --> order10(of Echelle_YFOSC_G10_E9-FeAr-HeNe-ZhangJujia.pdf)
+order6 --> order11(of Echelle_YFOSC_G10_E9-FeAr-HeNe-ZhangJujia.pdf)
+order5 --> order12(of Echelle_YFOSC_G10_E9-FeAr-HeNe-ZhangJujia.pdf)
+order4 --> order13(of Echelle_YFOSC_G10_E9-FeAr-HeNe-ZhangJujia.pdf)
+order3 --> order14(of Echelle_YFOSC_G10_E9-FeAr-HeNe-ZhangJujia.pdf)
+order2 --> order15(of Echelle_YFOSC_G10_E9-FeAr-HeNe-ZhangJujia.pdf)
+order1 --> order16(of Echelle_YFOSC_G10_E9-FeAr-HeNe-ZhangJujia.pdf)
+
+
+- for HENE lamp 1-6
+order1 --> order7(of Echelle_YFOSC_G10_E9-FeAr-HeNe-ZhangJujia.pdf)
+order2 --> order8(of Echelle_YFOSC_G10_E9-FeAr-HeNe-ZhangJujia.pdf)
+order3 --> order9(of Echelle_YFOSC_G10_E9-FeAr-HeNe-ZhangJujia.pdf)
+order4 --> order10(of Echelle_YFOSC_G10_E9-FeAr-HeNe-ZhangJujia.pdf)
+order5 --> order11(of Echelle_YFOSC_G10_E9-FeAr-HeNe-ZhangJujia.pdf)
+order6 --> order12(of Echelle_YFOSC_G10_E9-FeAr-HeNe-ZhangJujia.pdf)
