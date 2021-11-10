@@ -22,5 +22,7 @@ pyfile/*/*.lst
 pyfile/*/database_0
 pyfile/*/*.fits
 *__pycache__*
-
-
+pyfile/*/lampreference/*
+pyfile/*/iraf.log
+pyfile/*/*.lst
+pyfile/*/*.fits
