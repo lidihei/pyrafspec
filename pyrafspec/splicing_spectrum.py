@@ -75,7 +75,7 @@ def combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=None, speclist=None,
         if funcnorm is None:
            flux_norm, flux_smoothed2 =lanorm.normalize_spectrum_spline(wavenorm, _flux, p=1E-6, q=0.6, lu=(-1, 3), binwidth=40,niter=5)
         else:
-           flux_norm, flux_smoothed2 =funcnorm(_wave, _flux, **kwargs)
+           flux_norm, flux_smoothed2 =funcnorm(wavenorm, _flux)
         fluxs_dens[fluxi] = np.interp(wave_dens, _wave[50:-50], _flux[50:-50], right=0., left=0.)
         smoothed_dens[fluxi] = np.interp(wave_dens,  _wave[50:-50], flux_smoothed2[50:-50], right=0., left=0.)
         #fluxnorms_dens[fluxi] = np.interp(wave_dens, spec0.time[50:-50], flux_norm[50:-50], right=0., left=0.)
@@ -224,7 +224,7 @@ def splicing_irafspectrum(filename, R=1500, N=3, lam_start=3600, lam_end=8900, p
     R: [float] spectral resolution
     N: [int] oversampling
     pix: [list] len(pix) =2 and the elements should be int; the [start, end] pixel of each order of spectra
-    orders: [list]
+    orders: [list], the spectra order which is used to splicing
     returns:
     logwave: [array] log10(wavelength)
     fluxnorm: [array] normalized flux
@@ -245,12 +245,12 @@ def splicing_irafspectrum(filename, R=1500, N=3, lam_start=3600, lam_end=8900, p
         fluxs[_i] = spec[order].flux[pix[0]:pix[1]][_indsort] 
     waves, fluxs, flux_errs = rmcosimics(waves, fluxs, flux_errs, **kwargs)
     logwaves = np.log10(waves)
-    log10lam = get_loglam(R, lam_start, lam_end, N=3)
+    log10lam = get_loglam(R, lam_start, lam_end, N=N)
     waves, fluxs, flux_errs, _n = binning_spectrum(logwaves, fluxs, flux_errs, wave_bin=log10lam)
     logwave, fluxnorm, fluxnorm_err = combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=log10lam, speclist=None, funcnorm=funcnorm)
     return logwave, fluxnorm, fluxnorm_err
 
-def splicing_spectrum(fwave, fflux, R=1500, N=3, lam_start=3600, lam_end=8900, funcnorm= None):
+def splicing_spectrum(fwave, fflux, R=1500, N=3, lam_start=3600, lam_end=8900, pix=[0, -1],orders=None, funcnorm= None, **kwargs):
     ''' splicing the spectral segmentation of E9G10 to an spectrum
     parameters:
     --------------
@@ -258,20 +258,36 @@ def splicing_spectrum(fwave, fflux, R=1500, N=3, lam_start=3600, lam_end=8900, f
     fwave: [str] a dump file of lamp produced by bfosc_pipeline.py (e.g. fear-***.fit.dump)
     R: [float] spectral resolution
     N: [int] oversampling
+    pix: [list] len(pix) =2 and the elements should be int; the [start, end] pixel of each order of spectra
+    orders: [list], the spectra order which is used to splicing
     returns:
     logwave: [array] log10(wavelength)
     fluxnorm: [array] normalized flux
     fluxnorm_err: [array] the error of normalized flux
     '''
     star = combine_wave_flux(fwave, fflux)
-    waves = star['wavelength']['wave_solu']
-    fluxs = star['flux']['spec_extr']
-    flux_errs = star['flux']['err_extr']
+    waves0 = star['wavelength']['wave_solu']
+    fluxs0 = star['flux']['spec_extr']
+    flux_errs0 = star['flux']['err_extr']
+    if orders is None: orders = np.arange(waves0.shape[0])
+    N_orders = len(orders)
+    waves = np.zeros((N_orders, pix[1]- pix[0]))
+    fluxs = np.zeros_like(waves)
+    flux_errs = np.zeros_like(waves)
+    
+    for _i, order in enumerate(orders):
+        _wave = waves0[order][pix[0]:pix[1]]
+        _flux = fluxs0[order][pix[0]:pix[1]]
+        _flux_err = flux_errs0[order][pix[0]:pix[1]]
+        _indsort = np.argsort(_wave)
+        waves[_i] = _wave[_indsort]
+        fluxs[_i] = _flux[_indsort] 
+        flux_errs[_i] = _flux_err[_indsort] 
     waves, fluxs, flux_errs = rmcosimics(waves, fluxs, flux_errs, **kwargs)
     logwaves = np.log10(waves)
-    log10lam = get_loglam(R, lam_start, lam_end, N=3)
+    log10lam = get_loglam(R, lam_start, lam_end, N=N)
     waves, fluxs, flux_errs, _n = binning_spectrum(logwaves, fluxs, flux_errs, wave_bin=log10lam)
-    logwave, fluxnorm, fluxnorm_err = combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=log10lam, speclist=None, funcnorm=funcnorm)
+    logwave, fluxnorm, fluxnorm_err = combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=log10lam, speclist=None, funcnorm=funcnorm, log10=True)
     return logwave, fluxnorm, fluxnorm_err
 
 def write2fits(fstar, flamp, dire, fout=None):
@@ -295,21 +311,22 @@ def write2fits(fstar, flamp, dire, fout=None):
     data0 = np.zeros(1,dtype=np.float32)
     hdu = fits.PrimaryHDU(data0)
     hdu.header = starheader
-    hdu.header['fstar'] = (fstar, 'file name of raw image of star')
-    hdu.header['flamp'] = (flamp, 'file name of raw image of lamp')
+    hdu.header['fstar'] = (fstar, 'star raw image')
+    hdu.header['flamp'] = (flamp, 'lamp raw image')
     hdul = fits.HDUList([hdu, table])
     if fout is None:
-       fout = os.path.join(dire, f'{fstar}.fits')
+       fout = os.path.join(dire, f'{fstar}_splicing.fits')
     hdul.writeto(fout, overwrite=True)
 
 
-def pyrafspc1d2fits(filename, loglambda, flux, fluxerr, dire=None, fout=None):
+def pyrafspc1d2fits(filename, loglambda, flux, fluxerr, dire=None, fout=None, site=None):
     ''' write the header of fits file of star raw data  and jointed spectrum to fits file
     parameters:
     -------------
     filename: [str] file name of 1d spectrum (e.g. 202110220019_SPECSTARGET_BD+25d4655_slit16s_G10_E9)
     dire: [str] directory stored raw data and dump file
     fout: [str] the name of output fits file, if None: fout = f'{dire}/{fstar}.fits'
+    site: e.g. LiJiang Gaomeigu site=coord.EarthLocation.from_geodetic(lat=26.6951*u.deg, lon=100.03*u.deg, height=3200*u.m)
     -------------
     '''
     if dire is None:
@@ -327,7 +344,8 @@ def pyrafspc1d2fits(filename, loglambda, flux, fluxerr, dire=None, fout=None):
     #--------------light_travel_time----------------------------------------------------------
     radec = header['RA']+' '+header['DEC']
     ip_peg = coord.SkyCoord(radec, unit=(u.hourangle, u.deg), frame='icrs')
-    site = coord.EarthLocation.from_geodetic(lat=26.6951*u.deg, lon=100.03*u.deg, height=3200*u.m)
+    if site is None:
+       site = coord.EarthLocation.from_geodetic(lat=26.6951*u.deg, lon=100.03*u.deg, height=3200*u.m)
     times_ltt = Time(jd, format='jd', scale='utc', location=site)
     ltt = times_ltt.light_travel_time(ip_peg,'barycentric')
     barycorr = ip_peg.radial_velocity_correction(obstime=Time(times_ltt.iso), location=site)

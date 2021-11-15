@@ -6,7 +6,7 @@ import pandas as pd
 import os
 from pyrafspec import default_logheader
 
-def logs2list_2021(fname, dire, equipment='G10_E9',flat_expt = 900, lamp_expt= 300 ):
+def logs2list_2021(fname, dire=None, equipment='G10_E9',flat_expt = 900, lamp_expt= 300 ):
     '''convert log file of BFOSC (observed after 2021) to the lists of flat, bias, arc lamp and objecti
     parameters:
     ----------------
@@ -17,8 +17,8 @@ def logs2list_2021(fname, dire, equipment='G10_E9',flat_expt = 900, lamp_expt= 3
     lamp_expt: [float] the exposure time of lamp
     returns:
     ----------------
-    flat_list: [list]
     bias_list: [list]
+    flat_list: [list]
     star_list: [list] 
     lamp_list: [list]
     '''
@@ -40,8 +40,82 @@ def logs2list_2021(fname, dire, equipment='G10_E9',flat_expt = 900, lamp_expt= 3
            bias_list.append(os.path.join(dire, f'{fname}.fit'))
     return bias_list, flat_list, star_list, lamp_list
 
+
+def getfnamelist(fname, prefixi=8):
+    '''
+    fname: [stri] e.g. 20201216001-3
+    returns:
+    ------------
+    fnamelst: [lst] e.g. ['20201216-0001', '20201216-0002', '20201216-0003']
+    '''
+    fnamelst = []
+    _ids = fname[prefixi:].strip()
+    ids = _ids.split('-')
+    prefix = fname[0:prefixi]
+    if len(ids) == 1:
+        _id = int(_ids)
+        fnamelst.append(prefix+f'-{_id:04d}')
+    else:
+        for _id in np.arange(int(ids[0]), int(ids[1])+1):
+            _fname = prefix+f'-{_id:04d}'
+            fnamelst.append(_fname)
+    return fnamelst
+
+
+def logs2list_2020(fname, dire, equipment='1.6+G10+E9',flat_expt = 900, lamp_expt= 300, lamp='Fe/Ar', prefixi=8, filetype='.fit'):
+    '''convert log file of BFOSC (observed after 2020) to the lists of flat, bias, arc lamp and objecti
+    parameters:
+    ----------------
+    fname: [str] the name of the log file  
+    dire: [str] the directory of data
+    equipment: [str]
+    flat_expt: [float] the exposure time of flat
+    lamp_expt: [float] the exposure time of lamp
+    returns:
+    ----------------
+    bias_list: [list]
+    flat_list: [list]
+    star_list: [list] 
+    lamp_list: [list]
+    '''
+    filename = fname
+    header = ['FileName', 'obj', 'Btime', 'ExpT', 'Ra', 'Dec', 'epoch', 'notes']
+    logs = pd.read_table(filename, names=header, skiprows=11,delim_whitespace=True)
+    flist = logs['FileName']
+    expt = logs['ExpT']
+    obj = logs['obj']
+    notes = logs['notes']
+    flat_list = []
+    bias_list = []
+    star_list = []
+    lamp_list = []
+    for i, fname in enumerate(flist):
+        expti = np.float(expt[i])
+        if (obj[i].lower() == 'bias') and (expti == 0):
+           fnamelst = getfnamelist(fname, prefixi=prefixi)
+           bias_list += fnamelst
+        fnamelst = getfnamelist(fname, prefixi=prefixi)
+        if obj[i].lower() == 'flat':
+           if (expti == flat_expt):
+              flat_list += fnamelst
+           else: continue
+        if notes[i] != equipment:
+           continue
+        elif obj[i] == lamp:
+           if expti == lamp_expt:
+              lamp_list += fnamelst
+           else: continue
+        else:
+           star_list += fnamelst
+    bias_list = [os.path.join(dire, _i+filetype) for _i in bias_list]
+    flat_list = [os.path.join(dire, _i+filetype) for _i in flat_list]
+    star_list = [os.path.join(dire, _i+filetype) for _i in star_list]
+    lamp_list = [os.path.join(dire, _i+filetype) for _i in lamp_list]
+    return bias_list, flat_list, star_list, lamp_list
+
+
 def match_star2lamp(fname, equipment='G10_E9', lamp_expt= 300, fout=None):
-    ''' match star with lamp 
+    ''' match star with lamp for 216 logs produced after 2021
     parameters:
     ----------------
     fname: [str] the name of the log file
@@ -56,37 +130,134 @@ def match_star2lamp(fname, equipment='G10_E9', lamp_expt= 300, fout=None):
     expt = logs['ExpT']
     ra = logs['Ra']
     dec = logs['Dec']
+    btime = logs['UTCTime']
     star_list = []
     star_ra = []
     star_dec = []
     lamp_list = []
     lamp_ra = []
     lamp_dec = []
+    lamp_time = []
+    star_time = []
+    for _i, _btime in enumerate(btime):
+        hh, mm, ss = _btime.split(':')
+        times.append(np.float32(hh) +  np.float32(mm)/60 + np.float32(ss)/3600)
     for i, fname in enumerate(flist):
         if ('SPECSLAMP' in fname) and (equipment in fname) and (expt[i] == lamp_expt):
            lamp_list.append(fname)
            lamp_ra.append(ra[i])
            lamp_dec.append(dec[i])
+           lamp_time.append(times[i])
         if ('SPECSTARGET' in fname) and (equipment in fname):
           star_list.append(fname)
           star_ra.append(ra[i])
           star_dec.append(dec[i])
+          star_time.append(times[i])
+    lamp_list = np.array(lamp_list)
     lamp_ra = np.array(lamp_ra)
     lamp_dec = np.array(lamp_dec)
+    lamp_time = np.array(lamp_time)
+    star_list = np.array(star_list)
+    star_ra = np.array(star_ra)
+    star_dec = np.array(star_dec)
+    star_time = np.array(star_time)
     star_lamps = []
     strs = 'star_file,lamp_file\n'
     for i, star in enumerate(star_list):
         rai = star_ra[i]
         deci = star_dec[i]
-        ind = np.where((lamp_ra==rai) & (lamp_dec==deci))[0][0]
-        star_lamps.append(lamp_list[ind])
-        strs = strs+ f'{star},{lamp_list[ind]}\n'
+        absdtime = np.abs(lamp_time-star_time[i])
+        ind = (lamp_ra ==star_ra[i]) & (lamp_dec == star_dec[i])
+        _indtime = np.argmin(absdtime[ind])
+        starlamp = lamp_list[ind][_indtime]
+        star_lamps.append(starlamp)
+        strs = strs+ f'{star},{starlamp}\n'
     if fout is not None:
        ifile = open(fout, 'w')
        ifile.writelines(strs)
        ifile.close()
-    return star_list, star_lamps
+    return star_list, np.array(star_lamps)
 
+
+def match_star2lam_2020(fname, equipment='1.6+G10+E9', lamp_expt= 300, lamp='Fe/Ar', prefixi=8, fout=None):
+    ''' match star with lamp for 216 logs produced before 2021
+    parameters:
+    ----------------
+    fname: [str] the name of the log file  
+    dire: [str] the directory of data
+    equipment: [str]
+    flat_expt: [float] the exposure time of flat
+    lamp_expt: [float] the exposure time of lamp
+    returns:
+    ----------------
+    star_list: [list]
+    star_lamps: [list] the list of lamp cooresponding to the star
+    '''
+    header = ['FileName', 'obj', 'Btime', 'ExpT', 'Ra', 'Dec', 'epoch', 'notes']
+    logs = pd.read_table(fname, names=header, skiprows=11,delim_whitespace=True)
+    flist = logs['FileName']
+    expt = logs['ExpT']
+    obj = logs['obj']
+    notes = logs['notes']
+    btime = logs['Btime']
+    ra = logs['Ra']
+    dec = logs['Dec']
+    times = []
+    for _i, _btime in enumerate(btime):
+        hh, mm, ss = _btime.split(':')
+        times.append(np.float32(hh) +  np.float32(mm)/60 + np.float32(ss)/3600)
+    lamp_list = []
+    star_list = []
+    lamp_ra = []
+    lamp_dec = []
+    star_ra = []
+    star_dec = []
+    lamp_time = []
+    star_time = []
+    for i, fname in enumerate(flist):
+        expti = np.float(expt[i])
+        if (obj[i].lower() == 'bias'):
+           continue
+        if obj[i].lower() == 'flat':
+           continue
+        fnamelst = getfnamelist(fname, prefixi=prefixi)
+        nn = len(fnamelst) 
+        if obj[i] == lamp:
+           if expti == lamp_expt:
+              lamp_list += fnamelst
+              lamp_ra += [ra[i]]*nn
+              lamp_dec += [dec[i]]*nn
+              lamp_time += [times[i]]*nn
+           else: continue
+        else:
+           star_list += fnamelst
+           star_ra += [ra[i]]*nn
+           star_dec += [dec[i]]*nn
+           star_time += [times[i]]*nn
+    lamp_list = np.array(lamp_list)
+    lamp_ra = np.array(lamp_ra)
+    lamp_dec = np.array(lamp_dec)
+    lamp_time = np.array(lamp_time)
+    star_list = np.array(star_list)
+    star_ra = np.array(star_ra)
+    star_dec = np.array(star_dec)
+    star_time = np.array(star_time)
+    star_lamps = []
+    strs = 'star_file,lamp_file\n'
+    for i, star in enumerate(star_list):
+        rai = star_ra[i]
+        deci = star_dec[i]
+        absdtime = np.abs(lamp_time-star_time[i])
+        ind = (lamp_ra ==star_ra[i]) & (lamp_dec == star_dec[i])
+        _indtime = np.argmin(absdtime[ind])
+        starlamp = lamp_list[ind][_indtime]
+        star_lamps.append(starlamp)
+        strs = strs+ f'{star},{starlamp}\n'
+    if fout is not None:
+       ifile = open(fout, 'w')
+       ifile.writelines(strs)
+       ifile.close()
+    return star_list, np.array(star_lamps)
 
 
 class convertobslog:
