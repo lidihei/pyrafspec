@@ -7,6 +7,9 @@ install iraf could look at https://iraf-community.github.io/install.html
 install pyraf (https://pypi.org/project/pyraf/)
 - pip install pyraf
 
+install laspec (https://github.com/hypergravity/laspec)
+- pip install laspec
+
 install pyrafspec
 - $git clone https://github.com/lidihei/pyrafspec.git
 - $cd pyrafspec

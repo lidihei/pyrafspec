@@ -23,7 +23,7 @@ $\lambda^\prime = ln(10) 10^x$
 $\frac{\Delta \lambda}{\lambda} = ln(10)\Delta x$  & $R =  \frac{\lambda}{\Delta \lambda} $--> $\Delta x = \frac{1}{Rln(10)*n}$
 '''
 
-def combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=None, speclist=None, show=False, log10=True,funcnorm=None):
+def combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=None, speclist=None, show=False, log10=True,funcnorm=None, **kwargs):
     '''combine spectra of E9+G10 by summing the overlap zone
     page 28 of specnan2014
     parameters
@@ -57,7 +57,14 @@ def combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=None, speclist=None,
     fluxerr2s_dens = np.zeros((fluxs.shape[0], N_wv))
     smoothed_dens = np.zeros((fluxs.shape[0], N_wv))
     #waves_dens = np.zeros((fluxs.shape[0], N_wv))
-    
+    if show:
+       fignorm, axnorm = plt.subplots(2,1, figsize=(13,9), sharex=True)
+       plt.subplots_adjust(hspace=0)
+       plt.sca(axnorm[0])
+       plt.title('normlize')
+       plt.sca(axnorm[1])
+       plt.xlabel('wavelength')
+       plt.ylabel('Flux')
     for fluxi in speclist:
         #spec0 = rmcosimic(waves[fluxi], fluxs[fluxi], flux_errs[fluxi], sigma =5, itera=2, percentile_up=94, percentile_low=0.01,window_length=7, polyorder=2, 
         #                  show=False)
@@ -76,6 +83,13 @@ def combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=None, speclist=None,
            flux_norm, flux_smoothed2 =lanorm.normalize_spectrum_spline(wavenorm, _flux, p=1E-6, q=0.6, lu=(-1, 3), binwidth=40,niter=5)
         else:
            flux_norm, flux_smoothed2 =funcnorm(wavenorm, _flux)
+        if show:
+           plt.sca(axnorm[0])
+           plt.plot(wavenorm, _flux, 'k', lw=0.9)
+           plt.plot(wavenorm, flux_smoothed2, 'r', lw=1.5)
+           plt.sca(axnorm[1])
+           plt.plot(wavenorm, flux_norm)
+           
         fluxs_dens[fluxi] = np.interp(wave_dens, _wave[50:-50], _flux[50:-50], right=0., left=0.)
         smoothed_dens[fluxi] = np.interp(wave_dens,  _wave[50:-50], flux_smoothed2[50:-50], right=0., left=0.)
         #fluxnorms_dens[fluxi] = np.interp(wave_dens, spec0.time[50:-50], flux_norm[50:-50], right=0., left=0.)
@@ -130,7 +144,7 @@ def binning_spectrum(waves, fluxs, flux_errs, wave_bin=np.arange(3574, 8940, 0.8
         _flux_bin,_ = np.histogram(_wave, bins=wave_bin, weights=_flux)
         _n,_ = np.histogram(_wave, bins=wave_bin)
         flux_bin[_i] = _flux_bin/_n
-        fluxerr_bin[_i] =  np.sqrt(_fluxerr2_bin)/_n
+        fluxerr_bin[_i] =  np.sqrt(_fluxerr2_bin/_n)
         wave_new[_i] = wave
         n[_i] = _n
     _ind = np.isnan(flux_bin)
@@ -180,7 +194,7 @@ def rmcosimics(waves, fluxs, fluxerrs,**kwargs):
 
 def rmcosimic(wave, flux, fluxerr, sigma =8, itera=2, percentile_up=100, percentile_low=0.01, window_length=7, 
               polyorder=2, 
-              show=False):
+              show=False, ax=None):
     '''remove cosimic line of spec
     parameters:
     --------------
@@ -211,9 +225,13 @@ def rmcosimic(wave, flux, fluxerr, sigma =8, itera=2, percentile_up=100, percent
     lc.flux[ind_bad] = np.interp(lc.time[ind_bad], lc.time[~ind_bad], lc.flux[~ind_bad])
     lc.flux_err[ind_bad] = np.sqrt(np.interp(lc.time[ind_bad], lc.time[~ind_bad], (lc.flux_err[~ind_bad])**2))
     if show:
-       spec.scatter(color='b', )
+       if ax == None:
+          fig, ax = plt.subplots(1,1,figsize=(8.485, 4))
+       spec.scatter(ax= ax,color='b', )
+       #plt.scatter(spec.time, spec.flux,color='b', )
        plt.plot(lc.time, lc.flux)
        plt.plot(lc_trend.time, lc_trend.flux, lw=0.5, c='r')
+       plt.xlabel('wavelength')
     return lc
 
 def splicing_irafspectrum(filename, R=1500, N=3, lam_start=3600, lam_end=8900, pix=[0, -1], funcnorm= None, orders=None, **kwargs):
@@ -247,15 +265,15 @@ def splicing_irafspectrum(filename, R=1500, N=3, lam_start=3600, lam_end=8900, p
     logwaves = np.log10(waves)
     log10lam = get_loglam(R, lam_start, lam_end, N=N)
     waves, fluxs, flux_errs, _n = binning_spectrum(logwaves, fluxs, flux_errs, wave_bin=log10lam)
-    logwave, fluxnorm, fluxnorm_err = combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=log10lam, speclist=None, funcnorm=funcnorm)
+    logwave, fluxnorm, fluxnorm_err = combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=log10lam, speclist=None, funcnorm=funcnorm, log10=True, **kwargs)
     return logwave, fluxnorm, fluxnorm_err
 
-def splicing_spectrum(fwave, fflux, R=1500, N=3, lam_start=3600, lam_end=8900, pix=[0, -1],orders=None, funcnorm= None, **kwargs):
+def splicing_spectrum(fwave, fflux, R=1500, N=3, lam_start=3600, lam_end=8900, pix=[0, -1],orders=None, funcnorm= None, divide_blaze=False, threshold_blaze=500, **kwargs):
     ''' splicing the spectral segmentation of E9G10 to an spectrum
     parameters:
     --------------
-    fflux: [str] a dump file of star produced by bfosc_pipeline.py (e.g. star-***.fit.dump)
     fwave: [str] a dump file of lamp produced by bfosc_pipeline.py (e.g. fear-***.fit.dump)
+    fflux: [str] a dump file of star produced by bfosc_pipeline.py (e.g. star-***.fit.dump)
     R: [float] spectral resolution
     N: [int] oversampling
     pix: [list] len(pix) =2 and the elements should be int; the [start, end] pixel of each order of spectra
@@ -269,6 +287,31 @@ def splicing_spectrum(fwave, fflux, R=1500, N=3, lam_start=3600, lam_end=8900, p
     waves0 = star['wavelength']['wave_solu']
     fluxs0 = star['flux']['spec_extr']
     flux_errs0 = star['flux']['err_extr']
+    waves0, _fluxs0, flux_errs0 = rmcosimics(waves0, fluxs0, flux_errs0, **kwargs)
+    if divide_blaze:
+       blaze = star['flux']['blaze']
+       _ind = star['flux']['blaze'] < threshold_blaze
+       fluxs0 = _fluxs0/blaze
+       flux_errs0 = flux_errs0/blaze
+       fluxs0[_ind] = 0
+       flux_errs0[_ind] = 0
+       def show_blaze(waves0, _flux0, fluxs0, blaze, show=False, **kwargs):
+          if not show: return
+          _figbz, _axbz = plt.subplots(3,1, figsize=[13,9], sharex=True)
+          plt.subplots_adjust(hspace=0)
+          plt.sca(_axbz[0]); plt.title('blaze')
+          plt.plot(waves0.T, blaze.T)
+          plt.ylabel('blaze')
+          plt.sca(_axbz[1]);
+          plt.plot(waves0.T, _fluxs0.T)
+          plt.ylabel('flux')
+          plt.sca(_axbz[2]);
+          plt.plot(waves0.T, fluxs0.T)
+          plt.ylabel('flux/blaze')
+          plt.xlabel('wavelength')
+          return
+       show_blaze(waves0, _fluxs0, fluxs0, blaze, **kwargs)
+    else: fluxs0 = _fluxs0
     if orders is None: orders = np.arange(waves0.shape[0])
     N_orders = len(orders)
     waves = np.zeros((N_orders, pix[1]- pix[0]))
@@ -283,11 +326,11 @@ def splicing_spectrum(fwave, fflux, R=1500, N=3, lam_start=3600, lam_end=8900, p
         waves[_i] = _wave[_indsort]
         fluxs[_i] = _flux[_indsort] 
         flux_errs[_i] = _flux_err[_indsort] 
-    waves, fluxs, flux_errs = rmcosimics(waves, fluxs, flux_errs, **kwargs)
+    #waves, fluxs, flux_errs = rmcosimics(waves, fluxs, flux_errs, **kwargs)
     logwaves = np.log10(waves)
     log10lam = get_loglam(R, lam_start, lam_end, N=N)
     waves, fluxs, flux_errs, _n = binning_spectrum(logwaves, fluxs, flux_errs, wave_bin=log10lam)
-    logwave, fluxnorm, fluxnorm_err = combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=log10lam, speclist=None, funcnorm=funcnorm, log10=True)
+    logwave, fluxnorm, fluxnorm_err = combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=log10lam, speclist=None, funcnorm=funcnorm, log10=True, **kwargs)
     return logwave, fluxnorm, fluxnorm_err
 
 def write2fits(fstar, flamp, dire, fout=None):
@@ -367,27 +410,6 @@ def pyrafspc1d2fits(filename, loglambda, flux, fluxerr, dire=None, fout=None, si
     hdul.writeto(fout, overwrite=True)
 
 
-def dumpname(fstar, flamp, dire):
-    ''' get dump file from lamp and star file
-    parameters:
-    -------------
-    fstar: [str] file name of star spectrum (e.g. 202110220019_SPECSTARGET_BD+25d4655_slit16s_G10_E9)
-    flamp: [flamp] file name of lamp (e.g. '202110220021_SPECSLAMP_FeAr_slit16s_G10_E9')
-    dire: [str] directory stored raw data and dump file
-    returns:
-    -------------
-    fwave: [str] dump file name of lamp
-    fflux: [str] dump file name of star
-    fstarall: [str]
-    flampall: [str]
-    '''
-    stardump = f'star-{fstar}.fit.dump'
-    lampdump = f'star-{flamp}.fit.dump'
-    fwave = os.path.join(dire, lampdump)
-    fflux = os.path.join(dire, stardump)
-    fstarall = os.path.join(dire, f'{fstar}.fit')
-    flampall = os.path.join(dire, f'{fstar}.fit')
-    return fwave, fflux, fstarall, flampall
 
 
 if __name__ == '__main__':

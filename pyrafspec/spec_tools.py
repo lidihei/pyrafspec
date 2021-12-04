@@ -197,15 +197,15 @@ def rvcorr_spec(wave, flux, fluxerr, rv, wave_new=None, left=np.nan, right=np.na
     _lgwvl = lgwvl + 0.5*np.log(gamma)
     
     if wave_new is None:
-       lgwvl = np.log(wvl)
+       return _lgwvl, flux, fluxerr
     else: lgwvl = np.log(wave_new)
-    if interp1d is None:
-       flux_bc = np.interp(lgwvl, _lgwvl, flux, left=left, right=right)
-       err2 = np.interp(lgwvl, _lgwvl, fluxerr**2, left=left, right=right)
-    else:
-       flux_bc = interp1d(_lgwvl, flux, kind='linear',fill_value='extrapolate')(lgwvl)
-       err2 = interp1d(_lgwvl, fluxerr**2, kind='linear',fill_value='extrapolate')(lgwvl)
-    fluxerr_bc = np.sqrt(err2)
+       if interp1d is None:
+          flux_bc = np.interp(lgwvl, _lgwvl, flux, left=left, right=right)
+          err2 = np.interp(lgwvl, _lgwvl, fluxerr**2, left=left, right=right)
+       else:
+          flux_bc = interp1d(_lgwvl, flux, kind='linear',fill_value='extrapolate')(lgwvl)
+          err2 = interp1d(_lgwvl, fluxerr**2, kind='linear',fill_value='extrapolate')(lgwvl)
+       fluxerr_bc = np.sqrt(err2)
     return flux_bc, fluxerr_bc
 
 def lambda2vel(lambda0, wvl, flux, dwvl= 50, vel_dens=None):

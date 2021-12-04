@@ -62,7 +62,7 @@ def getfnamelist(fname, prefixi=8):
     return fnamelst
 
 
-def logs2list_2020(fname, dire, equipment='1.6+G10+E9',flat_expt = 900, lamp_expt= 300, lamp='Fe/Ar', prefixi=8, filetype='.fit'):
+def logs2list_2020(fname, dire, equipment='1.6+G10+E9',flat_expt = 900, lamp_expt= 300, lamp='Fe/Ar', prefixi=8, filetype='.fit', skiprows=11):
     '''convert log file of BFOSC (observed after 2020) to the lists of flat, bias, arc lamp and objecti
     parameters:
     ----------------
@@ -80,7 +80,7 @@ def logs2list_2020(fname, dire, equipment='1.6+G10+E9',flat_expt = 900, lamp_exp
     '''
     filename = fname
     header = ['FileName', 'obj', 'Btime', 'ExpT', 'Ra', 'Dec', 'epoch', 'notes']
-    logs = pd.read_table(filename, names=header, skiprows=11,delim_whitespace=True)
+    logs = pd.read_table(filename, names=header, skiprows=skiprows,delim_whitespace=True)
     flist = logs['FileName']
     expt = logs['ExpT']
     obj = logs['obj']
@@ -114,7 +114,7 @@ def logs2list_2020(fname, dire, equipment='1.6+G10+E9',flat_expt = 900, lamp_exp
     return bias_list, flat_list, star_list, lamp_list
 
 
-def match_star2lamp(fname, equipment='G10_E9', lamp_expt= 300, fout=None):
+def match_star2lamp(fname, equipment='G10_E9', lamp_expt= 300, fout=None, **kwargs):
     ''' match star with lamp for 216 logs produced after 2021
     parameters:
     ----------------
@@ -125,7 +125,7 @@ def match_star2lamp(fname, equipment='G10_E9', lamp_expt= 300, fout=None):
     star_list: [list]
     star_lamps: [list] the list of lamp cooresponding to the star
     '''
-    logs = pd.read_table(fname, header=0, delim_whitespace=True)
+    logs = pd.read_table(fname, header=0, delim_whitespace=True, **kwargs)
     flist = logs['FileName']
     expt = logs['ExpT']
     ra = logs['Ra']
@@ -139,6 +139,7 @@ def match_star2lamp(fname, equipment='G10_E9', lamp_expt= 300, fout=None):
     lamp_dec = []
     lamp_time = []
     star_time = []
+    times = []
     for _i, _btime in enumerate(btime):
         hh, mm, ss = _btime.split(':')
         times.append(np.float32(hh) +  np.float32(mm)/60 + np.float32(ss)/3600)
@@ -179,7 +180,7 @@ def match_star2lamp(fname, equipment='G10_E9', lamp_expt= 300, fout=None):
     return star_list, np.array(star_lamps)
 
 
-def match_star2lam_2020(fname, equipment='1.6+G10+E9', lamp_expt= 300, lamp='Fe/Ar', prefixi=8, fout=None):
+def match_star2lamp_2020(fname, equipment='1.6+G10+E9', lamp_expt= 300, lamp='Fe/Ar', prefixi=8, fout=None):
     ''' match star with lamp for 216 logs produced before 2021
     parameters:
     ----------------
