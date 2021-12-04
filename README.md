@@ -10,6 +10,9 @@ install pyraf (https://pypi.org/project/pyraf/)
 install laspec (https://github.com/hypergravity/laspec)
 - pip install laspec
 
+install lightkurve
+- pip install lightkurve==1.11.3
+
 install pyrafspec
 - $git clone https://github.com/lidihei/pyrafspec.git
 - $cd pyrafspec
