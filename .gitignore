@@ -6,7 +6,8 @@
 
 *iraf.log
 data/*
-ipynb/.ipynb_checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints
 ipynb/model
 ipynb/chains
 *.pdf
