@@ -26,4 +26,5 @@ pyfile/*/lampreference/*
 pyfile/*/iraf.log
 pyfile/*/*.lst
 pyfile/*/*.fits
+tutorial/note
 *.ipynb_checkpoints 
