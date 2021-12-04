@@ -180,8 +180,7 @@ def rvcorr_spec(wave, flux, fluxerr, rv, wave_new=None, left=np.nan, right=np.na
     wave [1d array]
     flux [1d array]
     fluxerr [1d array]
-    barycorr [float] barycentric radial velocity in units of km/s
-    
+    rv [float] radial velocity in units of km/s
     returns:
     ----------
     flux_bc [1d array]
@@ -198,7 +197,8 @@ def rvcorr_spec(wave, flux, fluxerr, rv, wave_new=None, left=np.nan, right=np.na
     
     if wave_new is None:
        return _lgwvl, flux, fluxerr
-    else: lgwvl = np.log(wave_new)
+    else: 
+       lgwvl = np.log(wave_new)
        if interp1d is None:
           flux_bc = np.interp(lgwvl, _lgwvl, flux, left=left, right=right)
           err2 = np.interp(lgwvl, _lgwvl, fluxerr**2, left=left, right=right)
@@ -206,7 +206,7 @@ def rvcorr_spec(wave, flux, fluxerr, rv, wave_new=None, left=np.nan, right=np.na
           flux_bc = interp1d(_lgwvl, flux, kind='linear',fill_value='extrapolate')(lgwvl)
           err2 = interp1d(_lgwvl, fluxerr**2, kind='linear',fill_value='extrapolate')(lgwvl)
        fluxerr_bc = np.sqrt(err2)
-    return flux_bc, fluxerr_bc
+    return wave_new, flux_bc, fluxerr_bc
 
 def lambda2vel(lambda0, wvl, flux, dwvl= 50, vel_dens=None):
     '''conver wavelength to velocity for a specific line (lambda0)
