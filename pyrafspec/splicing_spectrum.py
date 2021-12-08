@@ -96,23 +96,27 @@ def combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=None, speclist=None,
         err_frac = np.append(1, np.diff(_wave)/delta_wv)
         #print(delta_wv)
         
-        err2_tmp =  _fluxerr**2*err_frac
+        err2_tmp =  _fluxerr**2*err_frac**2
         #print(np.median(err_frac))
         fluxerr2s_dens[fluxi] = np.interp(wave_dens, _wave[50:-50], err2_tmp[50:-50], right=0., left=0.)
         #waves_dens[fluxi] = wave_dens
    
-    fracs = 1./np.sum(fluxs_dens > 0, axis=0)
-    fracs[np.isinf(fracs)] = 0.
-    _fluxs_sum = np.sum(fluxs_dens*fracs, axis=0)
-    _smooth_sum = np.sum(smoothed_dens*fracs, axis=0)
-    _fluxerr2s_sum = np.sum(fluxerr2s_dens*fracs**2, axis=0)
+    #fracs = 1./np.sum(fluxs_dens > 0, axis=0)
+    #fracs[np.isinf(fracs)] = 0.
+    ind = ~(fluxs_dens > 0) #np.isnan(fluxs_dens) | np.isinf(fluxs_dens) | (fluxs_dens <0)
+    fluxs_dens[ind] = 0
+    smoothed_dens[ind] = 0
+    fluxerr2s_dens[ind] = 0
+    _fluxs_sum = np.sum(fluxs_dens, axis=0)
+    _smooth_sum = np.sum(smoothed_dens, axis=0)
+    _fluxerr2s_sum = np.sum(fluxerr2s_dens, axis=0)
     _fluxnorm_sum = _fluxs_sum/_smooth_sum
     _fluxnorm_err = np.sqrt(_fluxerr2s_sum)/_smooth_sum
-    if show:
-       spec = lk.LightCurve(time=wave_dens,  flux=_fluxnorm_sum, flux_err=None)
-       spec.plot()
-       plt.xlabel('wavelength')
-       plt.ylim(0, 1.3)
+    #if show:
+    #   spec = lk.LightCurve(time=wave_dens,  flux=_fluxnorm_sum, flux_err=None)
+    #   spec.plot()
+    #   plt.xlabel('wavelength')
+    #   plt.ylim(0, 1.3)
     return wave_dens, _fluxnorm_sum, _fluxnorm_err
 
 def binning_spectrum(waves, fluxs, flux_errs, wave_bin=np.arange(3574, 8940, 0.8)):

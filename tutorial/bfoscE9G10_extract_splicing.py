@@ -18,10 +18,10 @@ from astropy.table import Table
 plt.style.use('lijiaostyle')
 
 # raw data directory
-dire = '/home/lcq/media/backup/216BFOSC/20211113_bfosc/'
+dire = '/home/lcq/media/backup/216BFOSC/sd0B_216_202109/20211114_bfosc/'
 
 # log file
-logfile = os.path.join(dire, '20211113_New.log')
+logfile = os.path.join(dire, '20211114_New.log')
 
 ###-------- the data observed after 20211023
 starlist, lamplist = match_star2lamp(logfile, equipment='G10_E9', lamp_expt= 300, fout=None)
@@ -49,7 +49,7 @@ for _i, flamp in enumerate(lamplist[2:3]):
     flux_errs = star['flux']['err_extr']
     logwave, flux, flux_err = splicing_spectrum.splicing_spectrum(fwave, fflux, R=3000, N=3, lam_start=3700, lam_end=8900, 
                                                                   pix=[300, 2030], orders=np.arange(0, 11), funcnorm=funcnorm, 
-                                                                   divide_blaze=True, threshold_blaze=700,
+                                                                   divide_blaze=False, threshold_blaze=700,
                                                                   show=show, ax=ax)
     for _i, wave in enumerate(waves):
         flux_norm, flux_smoothed = funcnorm(wave, fluxs[_i])
@@ -59,7 +59,7 @@ for _i, flamp in enumerate(lamplist[2:3]):
 plt.plot(10**logwave, flux, color='r', label='splice')
 plt.legend()
 plt.xlim(3800, 9000)
-plt.show()
+
 
 
 '''
@@ -104,3 +104,14 @@ for _i, flamp in enumerate(lamplist[2:3]):
     hdul.writeto(fout, overwrite=True)
 print('#-----------------------splice end--------------------------------')
 '''
+
+
+## check lamp
+fig, ax = plt.subplots(1,1, figsize=(13,6),sharex=True)
+plt.xlabel('wavelength')
+for _lampname in np.unique(lamplist):
+    _lampname = f'{dire}/fear-{_lampname}.fit.dump'
+    lampdata = joblib.load(_lampname)
+    plt.plot(lampdata['wave_solu'].T, lampdata['fear1d'].T)
+    
+plt.show()

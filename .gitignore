@@ -28,4 +28,6 @@ pyfile/*/iraf.log
 pyfile/*/*.lst
 pyfile/*/*.fits
 tutorial/note
-*.ipynb_checkpoints 
+*.ipynb_checkpoints
+data/*
+tutorial/peculiar_stars 

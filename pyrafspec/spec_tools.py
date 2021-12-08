@@ -7,30 +7,6 @@ from scipy.fftpack import fft
 from scipy.fftpack import ifft
 
 
-def reinterp_wave(ipar, Tpars, Tlusty_sps, wave0, wave, linearinterp=False):
-    '''interpolate spectrum in a new wavelength
-    parameters:
-    ------------------
-    ipar [int]
-    Tpars [ 2D array] parameters array of TLUSTY grid e.g. np.array([[teff, logg, z, vt]])
-    Tlusty_sps [2D array] spectra array of TLUSTY grid
-    wave0 [1D array] the original wavelength of TLUSTY spectra
-                     e.g. BTLUSTY optical: wave = np.arange(3200.01, 9998.7, 0.01); 
-                          OTLUSTY: wave = np.arange(3000, 7500, 0.01)
-    wave [1D array] the new wavelength
-    returns:
-    -------------
-    pars [1D array] which has the same parameters with Tpars
-    spec [1D array] has same length as wave
-    '''
-    #print(len(Tlusty_sps[ipar]), len(wave0))
-    if linearinterp:
-        spec = np.interp(wave, wave0, Tlusty_sps[ipar])
-    else:
-        func = SmoothSpline(wave0, Tlusty_sps[ipar], p=1)
-        spec = func(wave)
-    return Tpars[ipar], spec
-
 
 def smooth_by_bin(time, flux, bins):
     '''smooth light curve by bins
@@ -50,102 +26,6 @@ def smooth_by_bin(time, flux, bins):
     flux_smooth = flux_bins/n_bins
     return time_bins, flux_smooth
 
-def broad_tlusty(ipar, pix=0.01, mwv= 4861, R = 2000, pars=None, sps=None, wave=None, laspec_conv=False):
-    '''broad tlusty spectrum with a resolution
-    parameters:
-    ------------------
-    ipar [int]
-    pix [float] the sample interval of spectra
-    mwv [float] the median (or mean) wavelength of spectrum which is used to caculate the gaussian window by resoution
-    R [float] spectrum resolution which we want to get
-    Tpars [ 2D array] parameters array of TLUSTY grid e.g. np.array([[teff, logg, z, vt]])
-    Tlusty_sps [2D array] spectra array of TLUSTY grid
-    wave0 [1D array] the original wavelength of TLUSTY spectra
-                     e.g. BTLUSTY optical: wave = np.arange(3200.01, 9998.7, 0.01); 
-                          OTLUSTY: wave = np.arange(3000, 7500, 0.01)
-    wave [1D array] the new wavelength
-    returns:
-    -------------
-    pars [1D array] which has the same parameters with Tpars
-    spec [1D array] has same length as wave
-    '''
-    flux = sps[ipar]
-    if laspec_conv:
-       if wave is None: wave  =  nnp.arange(3201, 7499, 0.01)
-       wv_new, convsp = convolution.conv_spec(wave, flux, R_hi=300000., R_lo=R, over_sample_additional=1,
-              gaussian_kernel_sigma_num=5., wave_new=wave,
-              wave_new_oversample=1, verbose=False, return_type='array')
-    else:
-        fwhm = mwv/R
-        sigma =  fwhm / (2.0 * np.sqrt(2. * np.log(2.)))
-        nn2 = sigma/pix
-        x = np.arange(-nn2*2,nn2*2+1,1)
-        s2 = stats.norm.pdf(x,0,nn2)
-        s = s2/np.sum(s2)
-        convsp = np.convolve(flux,s,mode='same')
-    return Tpars[ipar], convsp
-
-
-def normalize_template(ipar, wvl, pars, sps):
-    '''Apply rotational broadening to a spectrum. The formulae given in Gray's "The Observation
-       and Analysis of Stellar Photospheres". 
-       
-    parameters:
-    ------------------
-    ipar [int]
-    vsini : [float]
-        Projected rotational velocity [km/s].
-    epsilon : [float]
-        Linear limb-darkening coefficient (0-1).
-    wvl : array
-        The wavelength array [A]. Note that a
-        regularly spaced array is required.
-    edgeHandling : string, {"firstlast", "None"}
-        The method used to handle edge effects.
-    Tpars [ 2D array] parameters array of TLUSTY grid e.g. np.array([[teff, logg, z, vt]])
-    Tlusty_sps [2D array] spectra array of TLUSTY grid
-    
-    returns:
-    -------------
-    pars [1D array] which has the same parameters with Tpars
-    spec [1D array] has same length as wave
-    
-    '''
-    flux = sps[ipar]
-    nflux = normalization.normalize_spectrum_spline(wvl, flux)
-    return pars[ipar], nflux[0]
-
-def rotbroad_template(ipar, epsilon, vsini, wvl, edgeHandling='firstlast', pars=None, sps=None):
-    '''Apply rotational broadening to a spectrum. The formulae given in Gray's "The Observation
-       and Analysis of Stellar Photospheres". 
-       
-    parameters:
-    ------------------
-    ipar [int]
-    vsini : [float]
-        Projected rotational velocity [km/s].
-    epsilon : [float]
-        Linear limb-darkening coefficient (0-1).
-    wvl : array
-        The wavelength array [A]. Note that a
-        regularly spaced array is required.
-    edgeHandling : string, {"firstlast", "None"}
-        The method used to handle edge effects.
-    Tpars [ 2D array] parameters array of TLUSTY grid e.g. np.array([[teff, logg, z, vt]])
-    Tlusty_sps [2D array] spectra array of TLUSTY grid
-    
-    returns:
-    -------------
-    pars [1D array] which has the same parameters with Tpars
-    rflux [1D array] rotational broadening spectra
-    
-    '''
-    flux = sps[ipar]
-    if vsini > 0:
-       rflux = pyasl.rotBroad(wvl, flux, epsilon, vsini, edgeHandling=edgeHandling)
-    else:
-       rflux = flux
-    return np.append(Tpars[ipar], vsini), rflux
 
 def interpolate_fluxrv(times, phase, flux_phase, tc0, period=None):
     '''interpolate flux or rv by the fluxs at one period
@@ -173,14 +53,16 @@ def interpolate_fluxrv(times, phase, flux_phase, tc0, period=None):
     return fluxes
 
 
-def rvcorr_spec(wave, flux, fluxerr, rv, wave_new=None, left=np.nan, right=np.nan, interp1d=None):
+def rvcorr_spec(wave, flux, fluxerr, rv, wave_new=None, left=np.nan, right=np.nan, interp1d=None, returnwvl=False):
     ''' correct spectrum with radial velocity
     parameters:
     ------------
     wave [1d array]
     flux [1d array]
     fluxerr [1d array]
+    wave_new [1d array] should be linear
     rv [float] radial velocity in units of km/s
+    returnwvl: [bool] if true, only return the cerrected wave (log(lambda))
     returns:
     ----------
     flux_bc [1d array]
@@ -194,19 +76,18 @@ def rvcorr_spec(wave, flux, fluxerr, rv, wave_new=None, left=np.nan, right=np.na
     lgwvl = np.log(wvl)
     gamma =(1+beta)/(1-beta)
     _lgwvl = lgwvl + 0.5*np.log(gamma)
+    if returnwvl: return _lgwvl/np.log(10)
     
-    if wave_new is None:
-       return _lgwvl, flux, fluxerr
-    else: 
+    if wave_new is not None:
        lgwvl = np.log(wave_new)
-       if interp1d is None:
-          flux_bc = np.interp(lgwvl, _lgwvl, flux, left=left, right=right)
-          err2 = np.interp(lgwvl, _lgwvl, fluxerr**2, left=left, right=right)
-       else:
-          flux_bc = interp1d(_lgwvl, flux, kind='linear',fill_value='extrapolate')(lgwvl)
-          err2 = interp1d(_lgwvl, fluxerr**2, kind='linear',fill_value='extrapolate')(lgwvl)
-       fluxerr_bc = np.sqrt(err2)
-    return wave_new, flux_bc, fluxerr_bc
+    if interp1d is None:
+       flux_bc = np.interp(lgwvl, _lgwvl, flux, left=left, right=right)
+       err2 = np.interp(lgwvl, _lgwvl, fluxerr**2, left=left, right=right)
+    else:
+       flux_bc = interp1d(_lgwvl, flux, kind='linear',fill_value='extrapolate')(lgwvl)
+       err2 = interp1d(_lgwvl, fluxerr**2, kind='linear',fill_value='extrapolate')(lgwvl)
+    fluxerr_bc = np.sqrt(err2)
+    return flux_bc, fluxerr_bc
 
 def lambda2vel(lambda0, wvl, flux, dwvl= 50, vel_dens=None):
     '''conver wavelength to velocity for a specific line (lambda0)
@@ -230,66 +111,6 @@ def lambda2vel(lambda0, wvl, flux, dwvl= 50, vel_dens=None):
        return vel_dens, flux_dens
     return vel, flux1
 
-def composite_spectra(wave1, flux1, R1, wave2, flux2, R2,\
-                     wave=None, rv1=1, vsini1=0, rv2=0, vsini2=0, epsilon1=0.2, epsilon2=0.2):
-    '''composite spectra of two stars
-    parameters:
-    -------------------
-    wave1: [array] the wavelength of star1
-    flux1: [array] the flux of star1
-    R1: [array] the radius of star1
-    wave2: [array] the wavelength of star2
-    flux2: [array] the flux of star2
-    R2: [array] the radius of star2
-    wave: [array] the new wavelength
-    rv1: [float] the radial velocity of star1 km/s
-    vsini1: [float] the rotational velocity of star1 km/s
-    rv2: [float] the radial velocity of star2 km/s
-    vsini2: [float] the rotational velocity of star2 km/s
-    epsilon1: [float] the limb-darkening coefficient of star1
-    epsilon2: [float] the limb-darkening coefficient of star2 
-    returns:
-    ------------
-    flux: [array]  flux = flux1*R1**2 + flux2*R2**2
-    '''
-    # shift with rv
-    flux2, _fluxerr2 = rvcorr_spec(wave2, flux2, np.zeros(len(wave2)),\
-                                    rv2, wave_new=wave, left=np.nan, right=np.nan, interp1d=None)
-    flux1, _fluxerr1 = rvcorr_spec(wave1, flux1, np.zeros(len(wave1)),\
-                                    rv1, wave_new=wave, left=np.nan, right=np.nan, interp1d=None)
-    #-----------------rotating broad
-    if vsini1 != 0:
-        wave1_vsini, flux1_vsini = rotconv(wave, flux1, epsilon1, vsini1)
-    else:
-        wave1_vsini, flux1_vsini = wave, flux1
-    if vsini2 != 0:
-        wave2_vsini, flux2_vsini = rotconv(wave, flux2, epsilon2, vsini2)
-    else:
-        wave2_vsini, flux2_vsini = wave, flux2
-    #--------------------reinterp wave
-    flux2, _fluxerr2 = rvcorr_spec(wave2_vsini, flux2_vsini, np.zeros(len(wave2_vsini)),\
-                                0, wave_new=wave, left=np.nan, right=np.nan, interp1d=None)
-    flux1, _fluxerr1 = rvcorr_spec(wave1_vsini, flux1_vsini, np.zeros(len(wave1_vsini)),\
-                                    0, wave_new=wave, left=np.nan, right=np.nan, interp1d=None)
-    flux = R1**2*flux1 + R2**2*flux2
-    #if show:
-    #   fig, ax = plt.subplots(1,1, figsize=[10,5])
-    #   nflux = normalization.normalize_spectrum_spline(wave, flux, niter=5)
-    #   #nflux1 = normalization.normalize_spectrum_spline(wave, flux1, niter=5) #(R1**2+R2**2)*flux1/nflux[1]
-    #   #nflux2 = normalization.normalize_spectrum_spline(wave, flux2, niter=5) #(R1**2+R2**2)*flux2/nflux[1]
-    #   flux1m = np.median(flux1[~np.isnan(flux1)])
-    #   flux2m = np.median(flux2[~np.isnan(flux2)])
-    #   print(flux1m)
-    #   nflux1 = R1**2*flux1/nflux[1] + R2**2*flux2m/(R1**2*flux1m + R2**2*flux2m)
-    #   nflux2 = (R2**2)*flux2/nflux[1] + R1**2*flux1m/(R1**2*flux1m + R2**2*flux2m)
-    #   plt.plot(wave, nflux[0], 'k')
-    #   plt.plot(wave, nflux1, '--r', label=f'primary rv={rv1} km/s')
-    #   plt.plot(wave, nflux2, '--b', label=f'secondary rv = {rv2} km/s')
-    #   #plt.xlim(4900, 5075)
-    #   #plt.ylim(0.8, 1.05)
-    #   plt.legend()
-    #   return flux, nflux1, nflux2
-    return flux
 
 def vacuum2air(w):
     return w / (1.0 + 2.735182e-4 + 131.4182 / w**2 + 2.76249e8 / w**4)

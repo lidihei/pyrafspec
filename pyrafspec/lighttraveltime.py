@@ -31,3 +31,17 @@ def eval_ltt(ra=62.794724868, dec=50.7082235439, jd=2456326.4583333, site=None, 
        return jd_llt.jd, ltt, _barycorr
     else:
        return jd_llt.jd, ltt
+
+
+def rv2baryrv(rv, barycorr):
+    '''baryrv =rv+barycorr(1+rv/c) (km/s)
+    parameters:
+    --------------
+    rv: [float] measured radial velocity (km/s)
+    barycorr: [float] barycentric radial velocity correction
+    returns:
+    baryrv: [float] barycentric radial velocity
+    '''
+    c = 299792.458
+    baryrv = rv+barycorr*(1+rv/c)
+    return baryrv
