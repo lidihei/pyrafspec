@@ -163,14 +163,18 @@ def match_star2lamp(fname, equipment='G10_E9', lamp_expt= 300, fout=None, **kwar
     star_dec = np.array(star_dec)
     star_time = np.array(star_time)
     star_lamps = []
-    strs = 'star_file,lamp_file\n'
+    strs = 'starlist,lamplist\n'
     for i, star in enumerate(star_list):
-        rai = star_ra[i]
-        deci = star_dec[i]
-        absdtime = np.abs(lamp_time-star_time[i])
-        ind = (lamp_ra ==star_ra[i]) & (lamp_dec == star_dec[i])
-        _indtime = np.argmin(absdtime[ind])
-        starlamp = lamp_list[ind][_indtime]
+        try:
+           rai = star_ra[i]
+           deci = star_dec[i]
+           absdtime = np.abs(lamp_time-star_time[i])
+           ind = (lamp_ra ==star_ra[i]) & (lamp_dec == star_dec[i])
+           _indtime = np.argmin(absdtime[ind])
+           starlamp = lamp_list[ind][_indtime]
+        except:
+           print(f'witout corresponding lamp file: {star}')
+           starlamp = 'witout_corresponding_lamp'
         star_lamps.append(starlamp)
         strs = strs+ f'{star},{starlamp}\n'
     if fout is not None:
@@ -244,14 +248,18 @@ def match_star2lamp_2020(fname, equipment='1.6+G10+E9', lamp_expt= 300, lamp='Fe
     star_dec = np.array(star_dec)
     star_time = np.array(star_time)
     star_lamps = []
-    strs = 'star_file,lamp_file\n'
+    strs = 'starlist,lamplist\n'
     for i, star in enumerate(star_list):
-        rai = star_ra[i]
-        deci = star_dec[i]
-        absdtime = np.abs(lamp_time-star_time[i])
-        ind = (lamp_ra ==star_ra[i]) & (lamp_dec == star_dec[i])
-        _indtime = np.argmin(absdtime[ind])
-        starlamp = lamp_list[ind][_indtime]
+        try:
+           rai = star_ra[i]
+           deci = star_dec[i]
+           absdtime = np.abs(lamp_time-star_time[i])
+           ind = (lamp_ra ==star_ra[i]) & (lamp_dec == star_dec[i])
+           _indtime = np.argmin(absdtime[ind])
+           starlamp = lamp_list[ind][_indtime]
+        except:
+           print(f'witout corresponding lamp file: {star}')
+           starlamp = 'witout_corresponding_lamp'
         star_lamps.append(starlamp)
         strs = strs+ f'{star},{starlamp}\n'
     if fout is not None:
