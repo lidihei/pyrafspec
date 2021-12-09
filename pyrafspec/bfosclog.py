@@ -261,7 +261,7 @@ def match_star2lamp_2020(fname, equipment='1.6+G10+E9', lamp_expt= 300, lamp='Fe
            print(f'witout corresponding lamp file: {star}')
            starlamp = 'witout_corresponding_lamp'
         star_lamps.append(starlamp)
-        strs = strs+ f'{star},{starlamp},{rai}{deci}\n'
+        strs = strs+ f'{star},{starlamp},{rai},{deci}\n'
     if fout is not None:
        ifile = open(fout, 'w')
        ifile.writelines(strs)
