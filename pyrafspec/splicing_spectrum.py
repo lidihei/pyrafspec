@@ -23,7 +23,7 @@ $\lambda^\prime = ln(10) 10^x$
 $\frac{\Delta \lambda}{\lambda} = ln(10)\Delta x$  & $R =  \frac{\lambda}{\Delta \lambda} $--> $\Delta x = \frac{1}{Rln(10)*n}$
 '''
 
-def combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=None, speclist=None, show=False, log10=True,funcnorm=None, **kwargs):
+def combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=None, speclist=None, show=False, log10=True,funcnorm=None, pixorders=None, **kwargs):
     '''combine spectra of E9+G10 by summing the overlap zone
     page 28 of specnan2014
     parameters
@@ -34,6 +34,7 @@ def combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=None, speclist=None,
     speclist [1D array of list] the indices of spectra; e.g. [0, 1, 2, 3]
     weight [bool] sum with weight
     funcnorm [function] a normalization function, if is None, lanorm.lanorm.normalize_spectrum_spline
+    pixorders: [2D array] pixorders.shape = (11,2), pixorders.shape[0] == waves.shape[0]
     return
     -----------
     wave_dens [1D array] the wavelength of the combine spectrum
@@ -57,6 +58,9 @@ def combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=None, speclist=None,
     fluxerr2s_dens = np.zeros((fluxs.shape[0], N_wv))
     smoothed_dens = np.zeros((fluxs.shape[0], N_wv))
     #waves_dens = np.zeros((fluxs.shape[0], N_wv))
+    if pixorders is None:
+       pixorders = np.ones((fluxs.shape[0], 2), dtype=np.int) * 50
+       pixorders[:, 1] = -pixorders[:, 1]
     if show:
        fignorm, axnorm = plt.subplots(2,1, figsize=(13,9), sharex=True)
        plt.subplots_adjust(hspace=0)
@@ -65,7 +69,7 @@ def combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=None, speclist=None,
        plt.sca(axnorm[1])
        plt.xlabel('wavelength')
        plt.ylabel('Flux')
-    for fluxi in speclist:
+    for _i, fluxi in enumerate(speclist):
         #spec0 = rmcosimic(waves[fluxi], fluxs[fluxi], flux_errs[fluxi], sigma =5, itera=2, percentile_up=94, percentile_low=0.01,window_length=7, polyorder=2, 
         #                  show=False)
         #### norlize spectrum
@@ -75,6 +79,7 @@ def combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=None, speclist=None,
         #                              niter=5)
         ind = fluxs[fluxi] > 0
         _wave, _flux, _fluxerr = waves[fluxi][ind], fluxs[fluxi][ind],  flux_errs[fluxi][ind]
+        pixs, pixe = pixorders[_i]
         if log10:
            wavenorm =10**(_wave)
         else:
@@ -85,20 +90,19 @@ def combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=None, speclist=None,
            flux_norm, flux_smoothed2 =funcnorm(wavenorm, _flux)
         if show:
            plt.sca(axnorm[0])
-           plt.plot(wavenorm, _flux, 'k', lw=0.9)
-           plt.plot(wavenorm, flux_smoothed2, 'r', lw=1.5)
+           plt.plot(wavenorm[pixs:pixe], _flux[pixs:pixe], 'k', lw=0.9)
+           plt.plot(wavenorm[pixs:pixe], flux_smoothed2[pixs:pixe], 'r', lw=1.5)
            plt.sca(axnorm[1])
            plt.plot(wavenorm, flux_norm)
-           
-        fluxs_dens[fluxi] = np.interp(wave_dens, _wave[50:-50], _flux[50:-50], right=0., left=0.)
-        smoothed_dens[fluxi] = np.interp(wave_dens,  _wave[50:-50], flux_smoothed2[50:-50], right=0., left=0.)
-        #fluxnorms_dens[fluxi] = np.interp(wave_dens, spec0.time[50:-50], flux_norm[50:-50], right=0., left=0.)
+        fluxs_dens[fluxi] = np.interp(wave_dens, _wave[pixs:pixe], _flux[pixs:pixe], right=0., left=0.)
+        smoothed_dens[fluxi] = np.interp(wave_dens,  _wave[pixs:pixe], flux_smoothed2[pixs:pixe], right=0., left=0.)
+        #fluxnorms_dens[fluxi] = np.interp(wave_dens, spec0.time[pixs:pixe], flux_norm[pixs:pixe], right=0., left=0.)
         err_frac = np.append(1, np.diff(_wave)/delta_wv)
         #print(delta_wv)
         
         err2_tmp =  _fluxerr**2*err_frac**2
         #print(np.median(err_frac))
-        fluxerr2s_dens[fluxi] = np.interp(wave_dens, _wave[50:-50], err2_tmp[50:-50], right=0., left=0.)
+        fluxerr2s_dens[fluxi] = np.interp(wave_dens, _wave[pixs:pixe], err2_tmp[pixs:pixe], right=0., left=0.)
         #waves_dens[fluxi] = wave_dens
    
     #fracs = 1./np.sum(fluxs_dens > 0, axis=0)
@@ -272,7 +276,8 @@ def splicing_irafspectrum(filename, R=1500, N=3, lam_start=3600, lam_end=8900, p
     logwave, fluxnorm, fluxnorm_err = combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=log10lam, speclist=None, funcnorm=funcnorm, log10=True, **kwargs)
     return logwave, fluxnorm, fluxnorm_err
 
-def splicing_spectrum(fwave, fflux, R=1500, N=3, lam_start=3600, lam_end=8900, pix=[0, -1],orders=None, funcnorm= None, divide_blaze=False, threshold_blaze=500, **kwargs):
+def splicing_spectrum(fwave, fflux, R=1500, N=3, lam_start=3600, lam_end=8900, pix=[0, -1],
+                      orders=None, funcnorm= None, divide_blaze=False, threshold_blaze=500, pixorders=None, **kwargs):
     ''' splicing the spectral segmentation of E9G10 to an spectrum
     parameters:
     --------------
@@ -334,7 +339,7 @@ def splicing_spectrum(fwave, fflux, R=1500, N=3, lam_start=3600, lam_end=8900, p
     logwaves = np.log10(waves)
     log10lam = get_loglam(R, lam_start, lam_end, N=N)
     waves, fluxs, flux_errs, _n = binning_spectrum(logwaves, fluxs, flux_errs, wave_bin=log10lam)
-    logwave, fluxnorm, fluxnorm_err = combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=log10lam, speclist=None, funcnorm=funcnorm, log10=True, **kwargs)
+    logwave, fluxnorm, fluxnorm_err = combine_spectrum_sum(waves, fluxs, flux_errs, wave_dens=log10lam, speclist=None, funcnorm=funcnorm, log10=True, pixorders=pixorders, **kwargs)
     return logwave, fluxnorm, fluxnorm_err
 
 def write2fits(fstar, flamp, dire, fout=None):

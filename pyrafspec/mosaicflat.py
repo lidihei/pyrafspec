@@ -19,6 +19,28 @@ from .fitslist import *
 from .config import *
 
 
+def load_reg(filename):
+    xnodes = np.array([])
+    ynodes = np.array([])
+    file = open(filename)
+    for row in file:
+        row = row.strip()
+        if row[0:5]=='point':                                                                                                                                                        
+            row = row.split('#')[0]
+            row = row.replace('point','')
+            row = row.replace('(','')
+            row = row.replace(')','')
+            g = row.split(',')
+            x = float(g[0]) - 1
+            y = float(g[1]) - 1
+            i = np.searchsorted(xnodes,x)
+            xnodes = np.insert(xnodes,i,x)
+            ynodes = np.insert(ynodes,i,y)
+    file.close()
+    return (xnodes,ynodes)
+
+
+
 def mosaic_flat(flatname, confname=None):
     if confname is None:
        confname = 'config/instrument.conf'

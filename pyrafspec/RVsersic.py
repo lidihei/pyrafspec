@@ -31,6 +31,14 @@ from scipy.optimize import curve_fit
 def gaussian(x,a,x0,sigma):
     return a*np.exp(-(x-x0)**2/(2*sigma**2))/(np.sqrt(2*np.pi)*sigma)
 
+def func(x,mu, a1, sig1,a2, sig2,a3, sig3,a4, sig4):
+    f1 = gaussian(x,a1,mu,sig1)
+    f2 = gaussian(x,a2,mu,sig2)
+    f3 = gaussian(x,a3,mu,sig3)
+    f4 = gaussian(x,a4,mu,sig4)
+    flux = f1+ f2+f3+f4
+    return flux
+
 def sersic(x,a,b,c,x0):
     return 1.-a*np.exp(-(np.abs(x-x0)/np.abs(b))**c)
 

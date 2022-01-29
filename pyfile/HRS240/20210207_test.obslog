@@ -13,7 +13,7 @@
 % Gain                 = 1.0 e-/ADU
 % Time System          = GPS
 % Time Zone            = +08:00
-% Filename Composition = /media/backup/240cm/HRS_reduced/20210207_test/20210207/%fname.fits
+% Filename Composition = /media/backup/240cm/HRS_reduced/20210207_test/20210207_test/%fname.fits
 % Cols                 = id,fname,object,time,exptime,note
  | 01      |20210207001 | bias     |            |   0   | 
  | 02      |20210207002 | bias     |            |   0   | 
