@@ -155,3 +155,45 @@ def rv_bysersic(wave, flux, lam0=4861, waverange=[4840, 4890], p0=[0.6,4.5,0.8,4
         print('can not fit this line by sersic')
         rv, rverr = -99999, -99999
     return rv, rverr
+
+def rv_bysersic2(wave, flux, fluxerr, lam0=4861, waverange=[4840, 4890], p0=[0.6,4.5,0.8,4862.], show=False, v =0):
+    '''Halpha: lam0 = 6562.79, waverange = [6550, 6580], p0 = [0.8,4.,1.,6562.]
+       Hbeta:  lam0 = 4861.35, waverange = [4840, 4890], p0 = [0.6,4.5,0.8,4862.]
+       Hgamma: lam0 = 4340.46, waverange = [4310, 4360], p0 = [0.8,4.,1.,4340.]
+    returns:
+    ------------
+    rv
+    rverr
+    chi2nv: [float] the reduced chi2
+    n: [int] the number of points used to sersic fit
+    '''
+    c = 299792.458
+    wave = wave + v/c*wave
+    ws, we = waverange
+    indw = (wave > ws) & (wave < we) & (flux  > 0) & (flux < 2.)
+    n = np.sum(indw)
+    try:
+        popt,pcov = fit_sersic(wave[indw],flux[indw],p0=p0)
+        yfit0 = sersic(wave[indw], *popt)
+        lam, lamerr = popt[-1], np.sqrt(pcov[-1,-1])
+        rv, rverr = dlambda2rv(lam, lamerr, lam0)
+        chi2 = np.nansum((flux[indw] - yfit0)**2/fluxerr**2)
+        chi2nv = chi2/(n-4)
+        if show:
+           xx = np.linspace(ws, we, 200)
+           ee = np.ones_like(xx)
+           vv, _ = dlambda2rv(xx, ee, lam0) 
+           yfit = sersic(xx, *popt)
+           fig, ax1 = plt.subplots(1,1,figsize=[7,3])
+           plt.plot(wave[indw], flux[indw], 'k', lw=0.8)
+           plt.plot(xx, yfit, 'r', lw=1.2)
+           plt.axvline(x = lam0, color='r', lw=1, ls='--')
+           plt.xlabel(r'wavelength $\AA$')
+           ax2 = ax1.twiny()
+           plt.plot(vv, yfit, 'r', lw=1.2)
+           plt.axvline(x=rv, color='b', lw=1)
+           plt.xlabel('v (km/s)'+f' rv = {rv:.2f}' + r'$\pm' f'{rverr:.2f}''$')
+    except:
+        print('can not fit this line by sersic')
+        rv, rverr, chi2nv = -99999, -99999, -99999
+    return rv, rverr, chi2nv, n
