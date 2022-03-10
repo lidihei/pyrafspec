@@ -177,7 +177,7 @@ def rv_bysersic2(wave, flux, fluxerr, lam0=4861, waverange=[4840, 4890], p0=[0.6
         yfit0 = sersic(wave[indw], *popt)
         lam, lamerr = popt[-1], np.sqrt(pcov[-1,-1])
         rv, rverr = dlambda2rv(lam, lamerr, lam0)
-        chi2 = np.nansum((flux[indw] - yfit0)**2/fluxerr**2)
+        chi2 = np.nansum((flux[indw] - yfit0)**2/fluxerr[indw]**2)
         chi2nv = chi2/(n-4)
         if show:
            xx = np.linspace(ws, we, 200)
