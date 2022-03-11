@@ -156,7 +156,7 @@ def rv_bysersic(wave, flux, lam0=4861, waverange=[4840, 4890], p0=[0.6,4.5,0.8,4
         rv, rverr = -99999, -99999
     return rv, rverr
 
-def rv_bysersic2(wave, flux, fluxerr, lam0=4861, waverange=[4840, 4890], p0=[0.6,4.5,0.8,4862.], show=False, v =0):
+def rv_bysersic2(wave, flux, fluxerr, lam0=4861, waverange=[4840, 4890], p0=[0.6,4.5,0.8,4862.], deltarv=500, show=False):
     '''Halpha: lam0 = 6562.79, waverange = [6550, 6580], p0 = [0.8,4.,1.,6562.]
        Hbeta:  lam0 = 4861.35, waverange = [4840, 4890], p0 = [0.6,4.5,0.8,4862.]
        Hgamma: lam0 = 4340.46, waverange = [4310, 4360], p0 = [0.8,4.,1.,4340.]
@@ -174,6 +174,11 @@ def rv_bysersic2(wave, flux, fluxerr, lam0=4861, waverange=[4840, 4890], p0=[0.6
     n = np.sum(indw)
     try:
         popt,pcov = fit_sersic(wave[indw],flux[indw],p0=p0)
+        deltawv = lam0 * deltarv/c
+        ws, we = popt[-1]-deltawv, popt[-1]+deltawv
+        indw = (wave > ws) & (wave < we) & (flux  > 0) & (flux < 2.)
+        n = np.sum(indw)
+        popt,pcov = fit_sersic(wave[indw],flux[indw],p0=popt)
         yfit0 = sersic(wave[indw], *popt)
         lam, lamerr = popt[-1], np.sqrt(pcov[-1,-1])
         rv, rverr = dlambda2rv(lam, lamerr, lam0)
