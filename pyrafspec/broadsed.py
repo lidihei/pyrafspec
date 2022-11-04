@@ -163,6 +163,11 @@ def rotconv(xinput,yinput,epsilon, vsini, ppr=None):
 def broadspc(wave, flux, R, vsini, epsilon=0.5, R0=300000, waveobs=None):
     '''broad the spectra
     paramenters:
+    ---------------
+    R: [float] specrum resolution
+    vsini: [float] projected rotational velocity (km/s)                                                                                                          
+    epsilon: float
+      Linear limb-darkening coefficient (0-1)
     waveobs: [1d array] if waveobs is not None, interpolate the spectrum into the wave.
     returns:
     ----------------
