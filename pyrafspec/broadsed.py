@@ -159,3 +159,27 @@ def rotconv(xinput,yinput,epsilon, vsini, ppr=None):
     y = y[subset]
 
   return(x,y)
+
+def broadspc(wave, flux, R, vsini, epsilon=0.5, R0=300000, waveobs=None):
+    '''broad the spectra
+    paramenters:
+    waveobs: [1d array] if waveobs is not None, interpolate the spectrum into the wave.
+    returns:
+    ----------------
+    wave_vr [1D array] the broaded wavelength
+    flux_vr [1D array] the broaded flux
+    '''
+    c_light = 299792.458
+    fwhm1 = c_light/R
+    fwhm0 = c_light/R0
+    fwhm = np.sqrt(fwhm1**2 - fwhm0**2)
+    x, y = vgconv(wave, flux,3.e5/4000)
+    if vsini==0:
+        wave_vr = x
+        flux_vr = y
+    else:
+        wave_vr, flux_vr = rotconv(x, y, epsilon, vsini)
+    if waveobs is not None:
+       flux_vr = np.interp(waveobs, wave_vr, flux_vr)
+       wave_vr = waveobs
+    return wave_vr, flux_vr
