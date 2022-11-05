@@ -136,6 +136,7 @@ def rotconv(xinput,yinput,epsilon, vsini, ppr=None):
   else:
     x = xinput
     y = yinput
+    step = np.log(xinput[1])-np.log(xinput[0])
 
   deltamax=vsini/clight
   npoints = 2*int(deltamax/step)+1
@@ -154,7 +155,7 @@ def rotconv(xinput,yinput,epsilon, vsini, ppr=None):
 
   if ppr != None:
     fac = int(deltamax / step / ppr)
-    subset = np.arange(x.size / fac, dtype=int) * fac 
+    subset = np.arange(x.size / fac, dtype=int) * fac
     x = x[subset]
     y = y[subset]
 
@@ -165,7 +166,7 @@ def broadspc(wave, flux, R, vsini, epsilon=0.5, R0=300000, waveobs=None):
     paramenters:
     ---------------
     R: [float] specrum resolution
-    vsini: [float] projected rotational velocity (km/s)                                                                                                          
+    vsini: [float] projected rotational velocity (km/s)
     epsilon: float
       Linear limb-darkening coefficient (0-1)
     waveobs: [1d array] if waveobs is not None, interpolate the spectrum into the wave.
@@ -178,7 +179,7 @@ def broadspc(wave, flux, R, vsini, epsilon=0.5, R0=300000, waveobs=None):
     fwhm1 = c_light/R
     fwhm0 = c_light/R0
     fwhm = np.sqrt(fwhm1**2 - fwhm0**2)
-    x, y = vgconv(wave, flux,3.e5/4000)
+    x, y = vgconv(wave, flux, fwhm)
     if vsini==0:
         wave_vr = x
         flux_vr = y
