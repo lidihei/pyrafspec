@@ -1,4 +1,5 @@
-from astropy.time import Time, units
+from astropy.time import Time
+from astropy import units as u
 from PyAstronomy import pyasl
 from astropy import coordinates as coord
 def eval_ltt(ra=62.794724868, dec=50.7082235439, jd=2456326.4583333, site=None, kind='barycentric', barycorr=True):                                                                                                            
@@ -15,12 +16,12 @@ def eval_ltt(ra=62.794724868, dec=50.7082235439, jd=2456326.4583333, site=None, 
     if barycorr=True return the barycentric correction
     # conf: https://docs.astropy.org/en/stable/time/
     # defaut site is Xinglong
-    # coord.EarthLocation.from_geodetic(lat=26.6951*units.deg, lon=100.03*units.deg, height=3200*units.m) lijiang
+    # coord.EarthLocation.from_geodetic(lat=26.6951*u.deg, lon=100.03*u.deg, height=3200*u.m) lijiang
     """
     if site is None:
         site = coord.EarthLocation.of_site('Beijing Xinglong Observatory')
     # sky position
-    ip_peg = coord.SkyCoord(ra, dec, unit=(units.deg, units.deg), frame='icrs')
+    ip_peg = coord.SkyCoord(ra, dec, unit=(u.deg, u.deg), frame='icrs')
     # time
     times = Time(jd, format='jd', scale='utc', location=site)
     # evaluate ltt
