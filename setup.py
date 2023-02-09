@@ -19,14 +19,14 @@ fh.close()
 # Setting up
 setup(
        # the name must match the folder name 'verysimplemodule'
-        name="bfosc_iraf", 
+        name="pyrafspec",
         version=VERSION,
         author="Jiao Li",
         author_email="lijiao@bao.ac.cn",
         description=DESCRIPTION,
         long_description=LONG_DESCRIPTION,
         packages=find_packages(),
-        url ='https://github.com/lidihei/irafE9G10',
+        url ='https://github.com/lidihei/pyrafspec',
         install_requires=['numpy', 'astropy', 'matplotlib', 'pyraf'
                          ], # add any additional packages that 
         # needs to be installed along with your package. Eg: 'caer'
