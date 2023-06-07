@@ -23,11 +23,11 @@ install pyrafspec
 
 # wavelength calibrate
 - keywords of iraf
--- k --> down to next order 
--- j --> up to previous order or (check rms)
--- h --> leave rms
--- d --> delete points
--- m --> mark points
--- f --> fit curve
--- w&e -> e --> select zone (xaixs invert: right_bottom --> left_top; yaxis_invert: left_top-->right_bottom)
--- w&a --> restore image
+- - k --> down to next order 
+- - j --> up to previous order or (check rms)
+- - h --> leave rms
+- - d --> delete points
+- - m --> mark points
+- - f --> fit curve
+- - w&e -> e --> select zone (xaixs invert: right_bottom --> left_top; yaxis_invert: left_top-->right_bottom)
+- - w&a --> restore image
