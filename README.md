@@ -22,12 +22,12 @@ install pyrafspec
 # pyfile/bfoscE9G10/HRS240.py is a example of extracting spectrum observed by Lijiang 240cm HRS
 
 # wavelength calibrate
-keywords of iraf
-k --> down to next order 
-j --> up to previous order or (check rms)
-h --> leave rms
-d --> delete points
-m --> mark points
-f --> fit curve
-w&e -> e --> select zone (xaixs invert: right_bottom --> left_top; yaxis_invert: left_top-->right_bottom)
-w&a --> restore image
+- keywords of iraf
+-- k --> down to next order 
+-- j --> up to previous order or (check rms)
+-- h --> leave rms
+-- d --> delete points
+-- m --> mark points
+-- f --> fit curve
+-- w&e -> e --> select zone (xaixs invert: right_bottom --> left_top; yaxis_invert: left_top-->right_bottom)
+-- w&a --> restore image
