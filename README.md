@@ -31,9 +31,11 @@ install pyrafspec
 - - f --> fit curve
 - - w&e -> e --> select zone (xaixs invert: right_bottom --> left_top; yaxis_invert: left_top-->right_bottom)
 - - w&a --> restore image
-- - q --> quit
+- - q --> quit identify or fitting process
+- :xo 3 (change the x-axis order of fiting of 2D fit)
 
 # use iraf
 # use iraf
 - $cl --> noao --> imred --> echel --> echelle --> ecidentify or dispcor
 - edit parameter: epa eci  (can edit parameters of ecidentify in GUI)
+- logout (quit iraf)
