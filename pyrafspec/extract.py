@@ -39,7 +39,7 @@ def extract1d(calib=False, apedit=True, apsum=True, logfile=None, lamp='ThAr', l
 
     if not calib:
         os.system('mkiraf')
-    if (logfile is None) or (logfile is ''):
+    if (logfile is None) or (logfile == ''):
        logfile = find_logfile()
     log = read_log(logfile)
     print('Obs Log File =',logfile)
