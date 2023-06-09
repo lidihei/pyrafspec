@@ -22,7 +22,7 @@ install pyrafspec
 # pyfile/bfoscE9G10/HRS240.py is a example of extracting spectrum observed by Lijiang 240cm HRS
 
 # wavelength calibrate
-- keywords of iraf
+- keywords of iraf [splot](https://iraf.readthedocs.io/en/latest/tasks/noao/imred/hydra/splot.html)
 - - k --> down to next order 
 - - j --> up to previous order or (check rms)
 - - h --> leave rms
