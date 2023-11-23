@@ -3,17 +3,21 @@ from astropy.io import fits
 from laspec import normalization
 from laspec.ccf import RVM
 from .spec_tools import rvcorr_spec
+from astropy.table import Table
 
 
 class coaddspec():
     
-    def coadd_spec(self, waves, fluxs, fluxerrs, rvs, wave_new, sigma=5, niter=3):
+    def coadd_spec(self, waves, fluxs, fluxerrs, rvs, wave_new, sigma=5, niter=3, **keywords):
         '''
+        parameters:
+        -----------------------------
         waves: [2D list or  2D array] contians the wave of each spectrum, waves.shape = (the number of spectra, the ponit number of each spectrum)
         fluxs: [2D list or  2D array] contians the flux of each spectrum
         fluxerrs: [2D list or  2D array]
         rvs: [1D arrray] the radial velocities of each spectrum
         wave_new: [1D array] the wavelength of the coadd spectra
+        sigma: [float]  mask = dflux > (sigma*fluxs_stdc)
         returns:
         ---------------
         flux_w: [1D array] flux coadded with weight $f = \frac{\sum{w_i*f_i(\lambda)}}{\sum{w_i}}$; $w_i = median(snr_i)$
@@ -71,7 +75,11 @@ class coaddspec():
         self.wave = wave_new
         return flux_w, fluxerr_w, flux_sum, fluxerr_sum
 
-    def measurerv(self, waves=None, fluxs=None, fluxerrs=None, rvm=None, **keywords):
+    def measurerv(self, waves=None, fluxs=None, fluxerrs=None, rvm=None, rv_grid=(-600, 600, 1), **keywords):
+        '''
+        fluxs [2D array or 2D list] the normlize fluxs
+        fluxerrs [2D array or 2D list] the normlize flux errs
+        '''
         waves = self.waves if waves is None else waves
         fluxs = self.fluxs if fluxs is None else fluxs
         fluxerrs = self.fluxerrs if fluxerrs is None else fluxerrs
@@ -87,25 +95,28 @@ class coaddspec():
         for _i, wave_obs in enumerate(waves):
             flux_obs = fluxs[_i]
             fluxerr_obs = fluxerrs[_i]
-            rvr = rvm.measure(wave_obs, flux_obs, flux_err=fluxerr_obs, nmc=100, rv_grid=(-600, 600, 1),
+            rvr = rvm.measure(wave_obs, flux_obs, flux_err=fluxerr_obs, nmc=100, rv_grid=rv_grid, method='Powell'
                         )
             #rvs[_i] = np.float32(rvr['rv_opt'])
             rvs[_i] = np.float32(rvr['rv_pct'][1])
-            rverrs[_i] = np.float32(np.sqrt(np.sum(np.diff(rvr['rv_pct'])**2)/2))
+            rverrs[_i] = np.float32(np.mean(np.diff(rvr['rv_pct'])))
         self.rvm = rvm
         return rvs, rverrs
     
-    def coadd_spec_iter(self, waves_rv, fluxs_rv, fluxerrs_rv, rvs, tolerance = 1, rvm=None):
-       ''' iterately coadd the spectra by using radial velocity measured by the coadded spectra
-       rvs [1D array] the initall radial velocities
-       tolerance [float] stop interation while np.median(rvs_i - rvs_i-1) < tolerance
-       rvm: [laspec.ccf.RVM]
-       '''
+    def coadd_spec_iter(self, waves_rv, fluxs_rv, fluxerrs_rv, rvs, tolerance = 1, rvm=None, **keywords):
+        ''' iterately coadd the spectra by using radial velocity measured by the coadded spectra
+        rvs [1D array] the initall radial velocities
+        tolerance [float] stop interation while np.median(rvs_i - rvs_i-1) < tolerance
+        parementes:
+        --------------------
+        fluxs_rv: normalize fluxs
+        rvm: [laspec.ccf.RVM]
+        '''
         drv = 100
         rvs0 = rvs.copy()
         while drv > tolerance:
             rvs, rverrs = self.measurerv(waves=waves_rv, fluxs=fluxs_rv, fluxerrs=fluxerrs_rv, rvm=rvm)
-            flux_w, fluxerr_w, flux_sum, fluxerr_sum = self.coadd_spec(self.waves, self.fluxs, self.fluxerrs, rvs, self.wave, sigma=5, niter=3)
+            flux_w, fluxerr_w, flux_sum, fluxerr_sum = self.coadd_spec(self.waves, self.fluxs, self.fluxerrs, rvs, self.wave, **keywords)
             drv = np.median(np.abs(rvs - rvs0))
             print(drv)
             rvs0 = rvs.copy()
@@ -135,5 +146,4 @@ class coaddspec():
         header['TCOMM4'] = 'flux is coadded directly '
         header['TCOMM5'] = 'error of flux coadded directly'
         hdu[1].header = header
-        hdu.writeto(fout, overwrite=True)
-        
+        hdu.writeto(fout, overwrite=True) 

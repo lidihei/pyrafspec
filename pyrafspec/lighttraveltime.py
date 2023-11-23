@@ -26,7 +26,7 @@ def eval_ltt(ra=62.794724868, dec=50.7082235439, jd=2456326.4583333, site=None, 
     times = Time(jd, format='jd', scale='utc', location=site)
     # evaluate ltt
     ltt = times.light_travel_time(ip_peg,kind)
-    jd_llt = times.utc + ltt
+    jd_llt = times.tdb + ltt.tdb
     if barycorr is True:
        _barycorr = ip_peg.radial_velocity_correction(obstime=Time(times.iso), location=site)
        return jd_llt.jd, ltt, _barycorr

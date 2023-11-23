@@ -387,7 +387,11 @@ class MultiSpecItem(object):
         for item in head.items():
             if item[0][0:4]=="WAT2":
                 string += item[1].ljust(68)
-        ap_num = head['NAXIS2']
+        try:
+            ap_num = head['NAXIS2']
+        except:
+            print('the number of apertur is 1')
+            ap_num = 1
         g = string.split('spec')
         pos_list = []
         for ap in np.arange(1,ap_num+1):
@@ -402,6 +406,7 @@ class MultiSpecItem(object):
             tmp  = string[pos1:pos2].split("=")[1].replace("\"","").strip()
             multispec_items[ap]=MultiSpecItem(tmp)
         return multispec_items
+
 
     def get_wv(self):
         ''' get wavelength for a record in multispec'''
