@@ -178,8 +178,11 @@ def broadspc(wave, flux, R, vsini, epsilon=0.5, R0=300000, waveobs=None):
     c_light = 299792.458
     fwhm1 = c_light/R
     fwhm0 = c_light/R0
-    fwhm = np.sqrt(fwhm1**2 - fwhm0**2)
-    x, y = vgconv(wave, flux, fwhm)
+    if R == R0:
+       x, y = wave, flux
+    else:
+       fwhm = np.sqrt(fwhm1**2 - fwhm0**2)
+       x, y = vgconv(wave, flux, fwhm)
     if vsini==0:
         wave_vr = x
         flux_vr = y
